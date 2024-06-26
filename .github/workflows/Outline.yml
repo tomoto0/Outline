@@ -3,7 +3,7 @@ name: Build LaTeX document
 on:
   push:
     branches:
-      - outline  # コンパイルを実行したいブランチ名
+      - main  # コンパイルを実行したいブランチ名
 
 jobs:
   build:
