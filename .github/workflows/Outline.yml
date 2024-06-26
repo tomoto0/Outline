@@ -3,7 +3,7 @@ name: Build LaTeX document
 on:
   push:
     branches:
-      - main  # コンパイルを実行したいブランチ名
+      - main  # or the branch you are working on
 
 jobs:
   build:
@@ -11,16 +11,17 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v3  # Latest version as of writing
 
     - name: Compile LaTeX document
       uses: xu-cheng/latex-action@v3
       with:
-        root_file: Outline.tex  # ここにコンパイルしたいTeXファイルを指定
-        latexmk_shell_escape: true  # 必要に応じて `true` にする
+        root_file: Outline.tex  # Replace with your main TeX file
+        latexmk_shell_escape: true  # Set to true if needed
 
     - name: Upload PDF
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v3  # Latest version as of writing
       with:
-        name: PDF
-        path: outline.pdf  # 生成されたPDFファイルのパス
+        name: pdf
+        path: outline.pdf  # Replace with the path to your generated PDF file
+
