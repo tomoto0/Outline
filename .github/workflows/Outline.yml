@@ -1,0 +1,26 @@
+name: Build LaTeX document
+
+on:
+  push:
+    branches:
+      - outline  # コンパイルを実行したいブランチ名
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Compile LaTeX document
+      uses: xu-cheng/latex-action@v3
+      with:
+        root_file: Outline.tex  # ここにコンパイルしたいTeXファイルを指定
+        latexmk_shell_escape: true  # 必要に応じて `true` にする
+
+    - name: Upload PDF
+      uses: actions/upload-artifact@v3
+      with:
+        name: PDF
+        path: outline.pdf  # 生成されたPDFファイルのパス
