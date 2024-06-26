@@ -3,7 +3,7 @@ name: Build LaTeX document
 on:
   push:
     branches:
-      - main  # or the branch you are working on
+      - outline  # コンパイルを実行したいブランチ名
 
 jobs:
   build:
@@ -12,16 +12,15 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-      
-    - name: Set up LaTeX environment
-      uses: dante-ev/latex-action@v2
+
+    - name: Compile LaTeX document
+      uses: xu-cheng/latex-action@v3
       with:
-        root_file: <Outline.tex>  # Replace <main.tex> with your main TeX file
-        compiler: latexmk
-        args: -pdf
-        
+        root_file: Outline.tex  # ここにコンパイルしたいTeXファイルを指定
+        latexmk_shell_escape: true  # 必要に応じて `true` にする
+
     - name: Upload PDF
       uses: actions/upload-artifact@v3
       with:
-        name: pdf
-        path: ./<main.pdf>  # Replace <main.pdf> with the name of your generated PDF file
+        name: PDF
+        path: outline.pdf  # 生成されたPDFファイルのパス
