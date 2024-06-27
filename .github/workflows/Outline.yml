@@ -1,27 +1,47 @@
-name: Build LaTeX document
+# The Example of Compiling LaTeX File
+# In your latex repository, make .github/workflows/main.yml like below.
+# You only have to change `LATEX_FILE_NAME` as your tex file.
 
 on:
   push:
-    branches:
-      - main  # or the branch you are working on
+    tags:
+      - "v*"
 
 jobs:
-  build:
+  test_job:
     runs-on: ubuntu-latest
-    
+    name: Example of compiling pdf
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3  # Latest version as of writing
-
-    - name: Compile LaTeX document
-      uses: xu-cheng/latex-action@v3
-      with:
-        root_file: Outline.tex  # Replace with your main TeX file
-        latexmk_shell_escape: true  # Set to true if needed
-
-    - name: Upload PDF
-      uses: actions/upload-artifact@v3  # Latest version as of writing
-      with:
-        name: pdf
-        path: outline.pdf  # Replace with the path to your generated PDF file
-
+      # make pdf
+      # LATEX_FILE_NAME -> main.pdf generated
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - name: Compile Tex File
+        id: compile_tex_file
+        uses: tsukuba-mas/platex-action@main
+        with:
+          LATEX_FILE_NAME: "Outline.tex"
+      # Create Release
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        with:
+          tag_name: ${{github.ref}}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Compiled PDF ${{github.ref}}
+          draft: false
+          prerelease: false
+      # Upload Asset main.pdf
+      - name: Upload Release Asset
+        id: upload_release_asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./main.pdf
+          asset_name: main.pdf
+          asset_content_type: application/pdf
