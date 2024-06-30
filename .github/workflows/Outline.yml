@@ -1,30 +1,33 @@
-name: Convert TeX to HTML
+name: Convert LaTeX to HTML
 
 on:
   push:
-    paths:
-      - '**.tex'
+    branches:
+      - main    # Watch the main branch for changes
 
 jobs:
   convert:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    
-    - name: Install pandoc
-      run: sudo apt-get install pandoc
-    
-    - name: Convert TeX to HTML
-      run: |
-        for file in *.tex
-        do
-          pandoc "$file" -o "${file%.tex}.html"
-        done
-    
-    - name: Commit HTML files
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add *.html
-        git commit -m "Convert TeX to HTML" || echo "No changes to commit"
-        git push
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install pandoc
+        run: sudo apt-get install -y pandoc
+
+      - name: Convert LaTeX to HTML
+        run: pandoc input.tex -o output.html
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add output.html
+          git commit -m 'Convert LaTeX to HTML'
+          git push
