@@ -22,7 +22,7 @@ jobs:
         run: sudo apt-get install -y pandoc
 
       - name: Convert LaTeX to HTML
-        run: pandoc input.tex -o output.html
+        run: pandoc Outline.tex -o outline.html
 
       - name: Commit and push changes
         run: |
