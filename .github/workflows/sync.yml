@@ -20,9 +20,9 @@ jobs:
 
       - name: Add secondary repository as remote
         env:
-          ACTIONS_SECRET_GITHUB_TOKEN: ${{ secrets.ACTIONS_SECRET_GITHUB_TOKEN }}
+          ACTIONS_SECRET_GITHUB_TOKEN: ${{ secrets.SYNC_PERSONAL_ACCESS_TOKEN }}
         run: |
-          git remote add secondary https://tomoto0:${{ secrets.ACTIONS_SECRET_GITHUB_TOKEN }}@github.com/tomoto0/tomoto0.github.io.git
+          git remote add secondary https://tomoto0:${{ secrets.SYNC_PERSONAL_ACCESS_TOKEN }}@github.com/tomoto0/tomoto0.github.io.git
 
       - name: Push to secondary repository
         run: |
