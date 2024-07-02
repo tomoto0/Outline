@@ -15,6 +15,6 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.ACTIONS_SECRET_GITHUB_TOKEN }}
-          branch: master  # tomoto0.github.ioのリポジトリのブランチ名 (通常はmaster)
+          branch: main  # tomoto0.github.ioのリポジトリのブランチ名 (通常はmaster)
           repository: tomoto0/tomoto0.github.io
           directory: ./ #  プッシュするディレクトリ。ルートディレクトリならそのまま
