@@ -1,20 +1,29 @@
-name: Sync to tomoto0.github.io
+name: Sync with tomoto0.github.io
 
 on:
   push:
     branches:
-      - main # プッシュ元のOverleafプロジェクトのブランチ名
+      - main
 
 jobs:
-  sync:
+  synchronize:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      - name: Checkout primary repository
         uses: actions/checkout@v2
-      - name: Push to tomoto0.github.io
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.ACTIONS_SECRET_GITHUB_TOKEN }}
-          branch: master  # tomoto0.github.ioのリポジトリのブランチ名 (通常はmaster)
-          repository: tomoto0/tomoto0.github.io
-          directory: ./ #  プッシュするディレクトリ。ルートディレクトリならそのまま
+
+      - name: Set up Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Add secondary repository as remote
+        env:
+          ACTIONS_SECRET_GITHUB_TOKEN: ${{ secrets.ACTIONS_SECRET_GITHUB_TOKEN }}
+        run: |
+          git remote add secondary https://tomoto0:${{ secrets.ACTIONS_SECRET_GITHUB_TOKEN }}@github.com/tomoto0/tomoto0.github.io.git
+
+      - name: Push to secondary repository
+        run: |
+          git push secondary main
