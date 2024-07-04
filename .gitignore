@@ -6,7 +6,7 @@
 *.dvi
 *.fdb_latexmk
 *.fls
-*.log
+# *.log
 *.pdf
 *.out
 *.xcp
