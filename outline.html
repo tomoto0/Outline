@@ -47,6 +47,7 @@
 <p>To elucidate the causal relationship and mechanisms through which the Great East Japan Earthquake affected the Gender Employment Gap in the disaster-affected regions, this study emphasizes the necessity of analyzing not only regional-level economic statistical panel data but also individual-level microdata pertaining to various socio-economic attributes. The microdatasets employed in this study include:</p>
 <p><img src="Statistical surveys.png" style="width:90.0%" alt="image" /></p>
 <h2 id="sec5.1">Empirical Strategy</h2>
+<p>Over the next few chapters, I will cover some recent developments in DID methods.</p>
 <p>This study statistically estimates whether trends similar to those observed at the regional level in microdata can be identified using four anonymized individual-level datasets: the Japan General Social Survey (JGSS), the Open Survey Data Japan Household Panel Survey on Consumer Preferences and Satisfaction (JHPS-CPS), the National Census, and the Housing and Land Survey. The analysis employs a Difference-in-Differences (DID) approach with Fukushima Prefecture as the Treatment group and other prefectures as the Control group.</p>
 <p>The empirical strategy of this study employs the difference-in-differences (DID) methodology. For the implementation of the Difference-in-Differences (DiD) analysis, I employ a pooled DiD methodology, which is particularly suitable for non-continuous time series data, such as quinquennial census surveys. This approach involves aggregating data into two distinct periods: pre-earthquake and post-earthquake. In cases where continuous annual data is unavailable, this method allows for the bifurcation of the dataset into these two critical temporal segments. By doing so, I can estimate the average treatment effect across the aggregated pre-treatment and post-treatment periods, effectively capturing the impact of the seismic event despite the temporal gaps in data collection. This strategy is especially advantageous when dealing with infrequently collected cross-sectional data, as it maximizes the utilization of available information while adhering to the fundamental principles of DiD analysis.</p>
 <p>The econometric model is specified as follows:</p>
@@ -61,10 +62,10 @@ E[\text{DiD estimator}] \\
 \end{aligned}$$</span><br /></p>
 <p>ーーーーーーーーーーーーー</p>
 <p>To adequately capture the dynamic effects of natural disasters, which inherently have long-term and evolving impacts, I employ a Two-Way Fixed Effects Event Study (TWFE Event Study) approach. This method extends the traditional Difference-in-Differences (DiD) framework to account for the temporal dimension of disaster impacts. The model is specified as follows:</p>
-<p><br /><span class="math display">$$Y_{ipt} = \beta_i + \eta_t + \sum_{l}^{} \gamma_l 1 [t-s_{ipt} = l] + \epsilon_{ipt}$$</span><br /></p>
+<p><br /><span class="math display">$$Y_{ipt} = \beta_ip + \eta_t + \sum_{l}^{} \gamma_l 1 [t-s_{pt} = l] + \epsilon_{ipt}$$</span><br /></p>
 <p>Where:<br />
 <span class="math inline"><em>Y</em><sub><em>i</em><em>p</em><em>t</em></sub></span> is the outcome variable for individual <span class="math inline"><em>i</em></span> in prefecture <span class="math inline"><em>p</em></span> at year <span class="math inline"><em>t</em></span><br />
-<span class="math inline"><em>β</em><sub><em>i</em></sub></span> represents unit fixed effects<br />
+<span class="math inline"><em>β</em><sub><em>i</em></sub><em>p</em></span> represents unit fixed effects for individual <span class="math inline"><em>i</em></span> in prefecture <span class="math inline"><em>p</em></span><br />
 <span class="math inline"><em>η</em><sub><em>t</em></sub></span> denotes time fixed effects<br />
 <span class="math inline"><em>s</em><sub><em>i</em></sub></span> is the timing of the earthquake occurrence<br />
 <span class="math inline"><em>l</em></span> is the number of periods relative to the earthquake <span class="math inline"><em>γ</em><sub><em>l</em></sub></span> captures the effect of the disaster <span class="math inline"><em>l</em></span> periods after (or before) its occurrence<br />
