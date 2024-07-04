@@ -151,7 +151,6 @@ The graph reveals that in Fukushima Prefecture, prior to the disaster, from 2008
 
 \newpage
 
-
 Figure 3 presents a line graph illustrating the number of applicants for public unemployment insurance (Employment Insurance) in Fukushima Prefecture, along with the proportion of female applicants relative to total applicants. The graph also includes the national average for comparison. 
 
 \begin{figure}[h!]
@@ -170,7 +169,7 @@ From this graph, it is evident that in Fukushima Prefecture, the proportion of f
 To study the effects of the triple tragedy of the earthquake, tsunami, and nuclear disaster and the theoretical predictions, I construct a monthly panel of 47 Japanese prefectures running from 2000 to 2018(just before COVID-19 pandemic).
 
 
-This paper uses a panel data of 65 countries observed over the 1987 to 2021 period. 
+This study uses a panel data of 65 countries observed over the 1987 to 2021 period. 
 
 To elucidate the causal relationship and mechanisms through which the Great East Japan Earthquake affected the Gender Employment Gap in the disaster-affected regions, this study emphasizes the necessity of analyzing not only regional-level economic statistical panel data but also individual-level microdata pertaining to various socio-economic attributes. The microdatasets employed in this study include:
 
@@ -188,12 +187,58 @@ To elucidate the causal relationship and mechanisms through which the Great East
 
 This study statistically estimates whether trends similar to those observed at the regional level in microdata can be identified using four anonymized individual-level datasets: the Japan General Social Survey (JGSS), the Open Survey Data Japan Household Panel Survey on Consumer Preferences and Satisfaction (JHPS-CPS), the National Census, and the Housing and Land Survey. The analysis employs a Difference-in-Differences (DID) approach with Fukushima Prefecture as the Treatment group and other prefectures as the Control group.
 
-The empirical strategy of this study employs the difference-in-differences (DID) methodology. The econometric model is specified as follows:
+The empirical strategy of this study employs the difference-in-differences (DID) methodology. For the implementation of the Difference-in-Differences (DiD) analysis, I employ a pooled DiD methodology, which is particularly suitable for non-continuous time series data, such as quinquennial census surveys. This approach involves aggregating data into two distinct periods: pre-earthquake and post-earthquake. In cases where continuous annual data is unavailable, this method allows for the bifurcation of the dataset into these two critical temporal segments. By doing so, I can estimate the average treatment effect across the aggregated pre-treatment and post-treatment periods, effectively capturing the impact of the seismic event despite the temporal gaps in data collection. This strategy is especially advantageous when dealing with infrequently collected cross-sectional data, as it maximizes the utilization of available information while adhering to the fundamental principles of DiD analysis.
+
+The econometric model is specified as follows:
+
 \begin{equation}
-Y_{ipt} = \alpha_{p} + \beta_{t} + \delta (Treatment_{pt} * Post_{t}) + X_{ipt} + \epsilon_{ipt}
+Y_{ipt} = \alpha_{p} + \beta D_{p} + \eta Post_{t} + \gamma (D_{pt} * Post_{t}) + X_{ipt} + \epsilon_{ipt}
 \end{equation}
 
-Here, \( Y_{idt} \) denotes the outcome variable, such as the employment rate, annual income, or working hours, for individual \( i \) in prefecture \( p \) at year \( t \). To implement the DID analysis, I adopt pooled DID methodology, which involves aggregating data across periods before and after the treatment in cross-sectional data. This method enables the estimation of the average treatment effect across the combined pre-treatment and post-treatment periods.
+Here, \( Y_{idt} \) denotes the outcome variable, such as the employment rate, annual income, or working hours, for individual \( i \) in prefecture \( p \) at year \( t \). \( \gamma \) represents the disasters effect that I aim to estimate. 
+
+
+\begin{equation}
+\begin{aligned}
+E[\text{DiD estimator}] \\
+&= (E[Y_{ipt}|D_i = 1, \text{Post}_t = 1] - E[Y_{ipt}|D_i = 1, \text{Post}_t = 0]) \\
+&- (E[Y_{ipt}|D_i = 0, \text{Post}_t = 1] - E[Y_{ipt}|D_i = 0, \text{Post}_t = 0]) \\
+&= (\alpha_{p} + \beta + \eta + \gamma - \beta_0 - \beta) - (\alpha_{p} + \eta - \alpha_{p}) \\
+&= \gamma
+\end{aligned}
+\end{equation}
+
+
+
+
+
+
+
+
+ーーーーーーーーーーーーー
+
+To adequately capture the dynamic effects of natural disasters, which inherently have long-term and evolving impacts, I employ a Two-Way Fixed Effects Event Study (TWFE Event Study) approach. This method extends the traditional Difference-in-Differences (DiD) framework to account for the temporal dimension of disaster impacts. The model is specified as follows:
+
+\begin{equation}
+Y_{ipt} = \beta_i + \eta_t + \sum_{l}^{} \gamma_l 1 [t-s_{ipt} = l] + \epsilon_{ipt}
+\end{equation}
+
+Where: \\
+$Y_{ipt}$ is the outcome variable for individual \( i \) in prefecture \( p \) at year \( t \) \\
+$\beta_i$ represents unit fixed effects \\
+$\eta_t$ denotes time fixed effects \\
+$s_{i}$ is the timing of the earthquake occurrence \\
+$l$ is the number of periods relative to the earthquake
+$\gamma_l$ captures the effect of the disaster $l$ periods after (or before) its occurrence \\
+$\epsilon_{ipt}$ is the error term
+
+This specification allows us to estimate the dynamic treatment effects over an extended period, both pre- and post-disaster, thereby providing a comprehensive understanding of the disaster's evolving impact on economic outcomes.
+
+ーーーーーーーーーーーーー
+
+
+
+
 
 Using individual-level data from the Japanese General Social Surveys (JGSS), I investigate changes in individual annual income by gender between the three disaster-affected prefectures and other prefectures before and after the earthquake. The JGSS dataset consists of cross-sectional data collected in 2000, 2001, 2002, 2003, 2005, 2006, 2008, 2010, 2012, 2015, 2016, 2017, and 2018, provided by the JGSS Research Center at Osaka University of Commerce. This survey includes responses from over 20,000 individuals aged 20 to 89 who completed self-administered questionnaires. 
 
