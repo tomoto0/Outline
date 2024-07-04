@@ -185,6 +185,9 @@ To elucidate the causal relationship and mechanisms through which the Great East
 \subsection{Empirical Strategy}
 \label{sec5.1}
 
+Over the next few chapters, I will cover some recent developments in DID methods. 
+
+
 This study statistically estimates whether trends similar to those observed at the regional level in microdata can be identified using four anonymized individual-level datasets: the Japan General Social Survey (JGSS), the Open Survey Data Japan Household Panel Survey on Consumer Preferences and Satisfaction (JHPS-CPS), the National Census, and the Housing and Land Survey. The analysis employs a Difference-in-Differences (DID) approach with Fukushima Prefecture as the Treatment group and other prefectures as the Control group.
 
 The empirical strategy of this study employs the difference-in-differences (DID) methodology. For the implementation of the Difference-in-Differences (DiD) analysis, I employ a pooled DiD methodology, which is particularly suitable for non-continuous time series data, such as quinquennial census surveys. This approach involves aggregating data into two distinct periods: pre-earthquake and post-earthquake. In cases where continuous annual data is unavailable, this method allows for the bifurcation of the dataset into these two critical temporal segments. By doing so, I can estimate the average treatment effect across the aggregated pre-treatment and post-treatment periods, effectively capturing the impact of the seismic event despite the temporal gaps in data collection. This strategy is especially advantageous when dealing with infrequently collected cross-sectional data, as it maximizes the utilization of available information while adhering to the fundamental principles of DiD analysis.
@@ -220,12 +223,12 @@ E[\text{DiD estimator}] \\
 To adequately capture the dynamic effects of natural disasters, which inherently have long-term and evolving impacts, I employ a Two-Way Fixed Effects Event Study (TWFE Event Study) approach. This method extends the traditional Difference-in-Differences (DiD) framework to account for the temporal dimension of disaster impacts. The model is specified as follows:
 
 \begin{equation}
-Y_{ipt} = \beta_i + \eta_t + \sum_{l}^{} \gamma_l 1 [t-s_{ipt} = l] + \epsilon_{ipt}
+Y_{ipt} = \beta_ip + \eta_t + \sum_{l}^{} \gamma_l 1 [t-s_{pt} = l] + \epsilon_{ipt}
 \end{equation}
 
 Where: \\
 $Y_{ipt}$ is the outcome variable for individual \( i \) in prefecture \( p \) at year \( t \) \\
-$\beta_i$ represents unit fixed effects \\
+$\beta_ip$ represents unit fixed effects for individual \( i \) in prefecture \( p \) \\
 $\eta_t$ denotes time fixed effects \\
 $s_{i}$ is the timing of the earthquake occurrence \\
 $l$ is the number of periods relative to the earthquake
