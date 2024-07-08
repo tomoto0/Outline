@@ -11,13 +11,13 @@
 
 \begin{document}
 
-\title{Outline1: Does the Gender Employment Gap Expand Due to Natural Disasters? Evidence from the Great East Japan Earthquake\break {}}
+\title{Does the Gender Employment Gap Expand Due to Natural Disasters?: Evidence from the Great East Japan Earthquake\break {}}
 
 \author{%
 \name{Tomoto Masuda}
 \address{}}
 
-\abstract{This study analyzes the impact of the Great East Japan Earthquake of March 2011 on the gender employment gap in Fukushima Prefecture. Employing an event study approach alongside a difference-in-differences (DID) methodology with fixed effects regression, this study examines the earthquake's influence on gender-based employment dynamics. Drawing on extensive prefectural economic statistical data and individual socio-economic attributes from sources such as the Japan General Social Survey (JGSS), the Open Survey Data Japan Household Panel Survey on Consumer Preferences and Satisfaction (JHPS-CPS), the National Census, and the Housing and Land Survey, this study assesses the long-term effects of the earthquake on the gender employment gap. The results indicate that, in contrast to the immediate aftermath, the long-term impacts on the gender employment gap have attenuated significantly. This convergence can be attributed to multiple factors, including persistent governmental initiatives aimed at promoting female labor force participation, the economically rational adaptations of households in response to disruptions in community structures, and the possibility that the destruction of communities by the disaster also disrupted traditional gender norms and local gift economies, pushing women into the labor market.}
+\abstract{This study examines the effects of the Great East Japan Earthquake of March 11, 2011, which led to a catastrophic tsunami and triggered a nuclear incident at Fukushima, on the gender employment gap in Fukushima Prefecture. Employing an event study approach alongside a difference-in-differences (DID) methodology with fixed effects regression, this study examines the earthquake's influence on gender-based employment dynamics. Drawing on extensive prefectural economic statistical data and individual socio-economic attributes from sources such as the Japan General Social Survey (JGSS), the Open Survey Data Japan Household Panel Survey on Consumer Preferences and Satisfaction (JHPS-CPS), the National Census, and the Housing and Land Survey, this study assesses the long-term effects of the earthquake on the gender employment gap. The results indicate that, in contrast to the immediate aftermath, the long-term impacts on the gender employment gap have attenuated significantly. This convergence can be attributed to multiple factors, including persistent governmental initiatives aimed at promoting female labor force participation, the economically rational adaptations of households in response to disruptions in community structures, and the possibility that the destruction of communities by the disaster also disrupted traditional gender norms and local gift economies, pushing women into the labor market.}
 
 \date{\today}
 
@@ -102,7 +102,7 @@ The ‘Act on Promotion of Women’s Participation and Advancement in the Workpl
 Development economics models suggest an increase in household members’ labour supply as a shock-coping strategy which is associated with the narrowing of gender employment gaps. Several studies have documented a rise in female labor force participation following natural disasters. 
 
 
-For instance, Canessa and Giannelli (2021)\cite{Canessa2021WomensShocks} examine the impact of severe flooding in Bangladesh on women's employment and empowerment using georeferenced and longitudinal household panel data. Their difference-in-differences analysis reveals a significant 13 percentage point increase in women's employment probability post-flood. 
+Some researchers, such as Canessa and Giannelli (2021), provide evidence that natural disasters spur women's labor force participation. They use georeferenced longitudinal household panel data to assess the impact of severe flooding in Bangladesh on women’s employment and empowerment, revealing a significant 13 percentage point increase in women's employment probability post-flood through a difference-in-differences analysis.
 
 
 The study uses a difference-in-difference approach to compare changes in women’s labor outcomes in severely flooded villages to those in unaffected villages. The results indicate that the flooding led to a significant increase in female labor force participation. This increase is particularly prominent among women from lower-income households and those engaged in unpaid work on family farms who sought paid employment outside the household farm.
@@ -118,9 +118,18 @@ On the other hand, in labor economics, the Risk Adjustment Hypothesis posits tha
 The study tries to fill gaps in the still sparse literature on the impact of natural disasters on gender disparities by differentiating between short-term and long-term effects, addressing the contradictory findings of existing research that suggests either an exacerbation or a reduction of gender gaps.
 
 
-
 \section{Data and Descriptive Statistics}
 \label{sec4}
+
+
+\subsection{Employment Situation in Fukushima Prefecture}
+\label{sec4.1}
+
+The employment and unemployment landscape in fiscal year 2011 was severely impacted by the Great East Japan Earthquake on March 11, 2011. The earthquake and subsequent tsunami, coupled with the severe nuclear incident at the Fukushima Daiichi Nuclear Power Plant, led to business closures, mass evacuation of residents both within and outside the prefecture, and reputational damage. These factors resulted in an exceptionally grave employment situation. Initially, there was a sharp increase in job seekers and unemployment insurance recipients. However, the employment situation gradually improved, primarily due to an upsurge in job openings related to post-disaster reconstruction, particularly in the construction sector. Consequently, the monthly effective job openings-to-applicants ratio rose to 0.70 in November 2011, surpassing the national average of 0.69 for the first time in 10 years and 6 months.
+
+
+\subsection{Microdata sets}
+\label{sec4.1}
 
 To elucidate the causal relationship and mechanisms through which the Great East Japan Earthquake affected the Gender Employment Gap in the disaster-affected regions, this study emphasizes the necessity of analyzing not only regional-level economic statistical panel data but also individual-level microdata pertaining to various socio-economic attributes. The microdata sets employed in this study include:
 
@@ -138,7 +147,9 @@ Figure 1 illustrates the number of new job openings-to-applicants ratio recorded
 
 Although the number of job openings in the three disaster-affected prefectures of Iwate, Miyagi, and Fukushima initially decreased significantly immediately after the disaster, they have since outperformed the national average. This improvement is largely attributed to the reconstruction demand, including a surge in the construction industry. The first research question of this study investigates how the gender employment gap has evolved under such circumstances.
 
-Figure 2 depicts a time-series graph showing the proportion of female job seekers among total job applications submitted to Hello Work in Fukushima Prefecture. A higher proportion suggests a narrowing gender employment gap. 
+\newpage
+
+Figure 2 depicts a time-series graph showing the proportion of women job seekers among total new job applications submitted to Hello Work in Fukushima Prefecture. A higher proportion suggests a narrowing gender employment gap. 
 
 \begin{figure}[h!]
     \centering
@@ -151,7 +162,21 @@ The graph reveals that in Fukushima Prefecture, prior to the disaster, from 2008
 
 \newpage
 
-Figure 3 presents a line graph illustrating the number of applicants for public unemployment insurance (Employment Insurance) in Fukushima Prefecture, along with the proportion of female applicants relative to total applicants. The graph also includes the national average for comparison. 
+
+Figure 3 presents a time-series graph showing the proportion of active women job seekers among total job applications submitted to Hello Work in Fukushima Prefecture.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Women ratio on the number of active job seekers.jpeg}  % 幅を本文の80%に設定
+    \caption{Women ratio on the number of active job seekers in Fukushima Pref.}
+    \label{fig:women_ratio_fukushima}
+\end{figure}
+
+Labor market trends in Fukushima Prefecture over the past two decades can be divided into three phases. During the 2008-2010 global financial crisis, overall job seekers increased, but the proportion of female job seekers decreased, indicating a stronger impact on male employment. However, the aftermath of the Great East Japan Earthquake in 2011 saw a sustained elevation in the proportion of female job seekers. This trend persisted throughout the post-disaster period, indicating an increasing of women job seekers. Since 2020, the COVID-19 pandemic has led to a slight decline in the female share of job seekers. 
+
+\newpage
+
+Figure 4 presents a line graph illustrating the number of applicants for public unemployment insurance (Employment Insurance) in Fukushima Prefecture, along with the proportion of female applicants relative to total applicants. The graph also includes the national average for comparison. 
 
 \begin{figure}[h!]
     \centering
