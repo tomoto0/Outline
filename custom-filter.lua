@@ -1,15 +1,23 @@
-function Meta(meta)
-  local author = meta.author
+function Pandoc(doc)
+  -- 著者情報と抄録をHTMLとして挿入
+  local author = doc.meta.author
+  local abstract = doc.meta.abstract
+  local blocks = {}
+
   if author then
-    meta.author_html = pandoc.RawBlock('html', '<div class="author">' .. pandoc.utils.stringify(author) .. '</div>')
+    table.insert(blocks, pandoc.RawBlock('html', '<div class="author">' .. pandoc.utils.stringify(author) .. '</div>'))
   end
 
-  local abstract = meta.abstract
   if abstract then
-    meta.abstract_html = pandoc.RawBlock('html', '<div class="abstract">' .. pandoc.utils.stringify(abstract) .. '</div>')
+    table.insert(blocks, pandoc.RawBlock('html', '<div class="abstract">' .. pandoc.utils.stringify(abstract) .. '</div>'))
   end
 
-  return meta
+  -- 既存のブロックの先頭に新しいブロックを挿入
+  for i, block in ipairs(doc.blocks) do
+    table.insert(blocks, block)
+  end
+
+  return pandoc.Pandoc(blocks, doc.meta)
 end
 
 function Header(elem)
