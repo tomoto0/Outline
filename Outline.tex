@@ -7,6 +7,7 @@
 \usepackage{subcaption}
 \usepackage{cite}  % citeパッケージのインポート
 \usepackage{natbib}  % 必要に応じて引用パッケージを使用
+\usepackage{pifont}
 \bibliographystyle{apalike}
 
 \begin{document}
@@ -93,11 +94,25 @@ The ‘Act on Promotion of Women’s Participation and Advancement in the Workpl
  Porcelli and Trezzi (2018)\cite{Porcelli2019TheItaly} conducted a counterfactual analysis using a balanced panel of 95 Italian provinces, examining the impact of 22 earthquakes on output and employment from 1986 to 2011. Their study, which compared affected provinces with similar neighboring provinces, revealed that the economic contraction following seismic events was generally minimal. In some instances, the net effect on output and employment was positive, as reconstruction activities outweighed the destruction of physical capital.
 
 
-
 \section{Literature review}
 \label{sec3}
 
-Development economics models suggest an increase in household members’ labour supply as a shock-coping strategy which is associated with the narrowing of gender employment gaps. Several studies have documented a rise in female labor force participation following natural disasters. 
+Nearly every empirical study of natural disasters finds short-term declines in either income or employment especially for groups vulnerable to disasters, such as primary industry workers, non-regular workers, women, and the elderly.
+
+（e.g.,\cite{};\cite{};\cite{};\cite{})
+
+ \citet{Groger2016InternalTyphoon} says... 
+
+
+This section reviews studies on the returns to education. \cite{Amei2012TimeEarthquakes} estimates the returns to schooling using data on years of education and wages. \cite{Ando2011EarthquakeView} estimates the returns to schooling using data from a policy experiment on school construction in Indonesia. \cite{Canessa2019WomensShocks} proposes a method for estimating the returns to schooling in cases where individuals' years of education change.
+
+
+
+
+
+Development economics models suggest an increase in household members’ labour supply as a shock-coping strategy which is associated with the narrowing of gender employment gaps. 
+
+Several studies demonstrate that labor markets can function as an ex-post risk coping mechanism following natural disasters. Studies have shown that households, particularly women, increase their labor supply as a risk mitigation strategy (Sakai et al., 2017). This phenomenon is part of the broader concept of non-market insurance mechanisms, which play a crucial role in post-disaster recovery and risk management.
 
 
 Some researchers, such as Canessa and Giannelli (2021), provide evidence that natural disasters spur women's labor force participation. They use georeferenced longitudinal household panel data to assess the impact of severe flooding in Bangladesh on women’s employment and empowerment, revealing a significant 13 percentage point increase in women's employment probability post-flood through a difference-in-differences analysis.
@@ -109,6 +124,7 @@ The study uses a difference-in-difference approach to compare changes in women�
 Income diversification: The flood negatively impacted household income, particularly from agriculture. As a result, women, especially those from poorer households, entered the workforce to mitigate income losses and support their families.
 Increased bargaining power: Women who engaged in paid work outside the family farm experienced a notable increase in their decision-making power within their households. This finding aligns with the idea that earning an independent income empowers women and strengthens their position in intra-household negotiations.
 
+ \citet{Deryugina2018TheReturns} analyzed Hurricane Katrina's long-term economic impact on New Orleans residents. While victims initially experienced significant income losses and reduced employment, within a few years their incomes and employment rates not only recovered but surpassed those of a control group.
 
 On the other hand, in labor economics, the Risk Adjustment Hypothesis posits that during economic shocks or natural disasters, women are more susceptible to labor market exclusion and face higher risks of deteriorating work conditions or unemployment compared to men. This hypothesis suggests that specific labor market subgroups, particularly female and non-regular workers, often function as 'adjustment valves,' absorbing economic shocks. These groups are disproportionately affected, serving as mechanisms to mitigate broader economic impacts. This framework illuminates the gender-based disparities in employment stability and the uneven distribution of economic resilience across worker categories during crises. For instance, Kim, Ashley, and Corcoran (2014) examines the economic impact of the 2010 earthquake in Haiti, focusing on changes in household composition and employment retention. Authors found that the earthquake caused a significant reduction in employment rates, from 52.6\% prior to the earthquake to 28.6\% five months post-event. Gender disparities were evident, with only 34.2\% of women retaining their employment compared to 55.6\% of men. 
 
@@ -297,15 +313,14 @@ The pre/post income band difference for affected prefecture women was statistica
 \section{Discussion}
 \label{sec5}
 
-\subsection{Regional level}
+\subsection{Conceptual framework}
 \label{sec5.1}
 
-The case of the Great East Japan Earthquake illustrates the complexity of the reconstruction process and rational household responses when communities are disrupted by both tsunami disasters and nuclear accidents. This study presents changes in gender gaps in such complex disaster-affected areas as a conceptual model, as depicted in Figure 7.
+The case of the Great East Japan Earthquake illustrates the complexity of the reconstruction process and rational household responses when communities are disrupted by the disasters. Figure 7 presents changes in female labor force participation in a disaster-affected prefecture overtime as a conceptual framework for understanding overall effect. $T0$ represents the time point when the earthquake occurred. 
 
+At Phase 1, according to the Risk Adjustment Hypothesis, an exogenous shock would alter the production function of both sellers and buyers, disproportionately affecting female employment due to the higher prevalence of non-regular workers among women.
 
-At Phase 1, an exogenous shock would alter the production function of both sellers and buyers, disproportionately affecting female employment due to the higher prevalence of non-regular workers among women.
-
-At Phase 2, the female employment recovery rate would surpass that of males, driven by three factors: the reconstruction demand boom, household shock coping strategies necessitating women to seek employment, and government policies aimed at promoting employment opportunities for women.
+At Phase 2, the female employment recovery rate would surpass that of males, driven by three factors: the post-disaster spike in reconstruction demand, household shock coping strategies necessitating women to seek employment, and government policies aimed at promoting employment opportunities for groups vulnerable to disasters.
 
 At Phase 3, in the long term, the impact of the disaster gradually diminishes, and the employment levels of women in the affected areas converge towards the national average.
 
@@ -313,24 +328,37 @@ At Phase 3, in the long term, the impact of the disaster gradually diminishes, a
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.9\textwidth]{A conceptual model.jpeg}  % 幅を本文の80%に設定
-    \caption{A conceptual framework for understanding long-term effects on Women's Labor Force Participation}
+    \caption{A conceptual framework for understanding overall effect}
     \label{fig:conceptual_model}
 \end{figure}
 
 
+Initially, these events disproportionately impacted female workers negatively. However, the earthquake and nuclear disaster potentially accelerated women's labor market participation by fundamentally disrupting communities bound by traditional gender roles. In the short term, the disaster and nuclear accident had a more severe negative impact on female workers. However, in the long term, this catastrophic event, while devastating, may have inadvertently challenged long-standing societal norms, thus facilitating increased female workforce engagement. The conceptual framework for considering gender dynamics and disaster impacts adapted the below basic model which captures the change in female labor force participation overtime, measuring its cumulative effect:
 
-(A conceptual framework for considering gender dynamics and disaster impacts adapted from World Bank 2012 and Hallegatte et al. 2017)
+\begin{equation}
+\int_0^{T2} [LF_F(t) - LF_O(t)] dt
+\end{equation}
 
-Initially, these events disproportionately impacted women workers negatively. However, The earthquake and nuclear disaster potentially accelerated women's labor market participation by fundamentally disrupting communities bound by traditional gender roles. In the short term, the disaster and nuclear accident had a more severe negative impact on female workers. However, in the long term, this catastrophic event, while devastating, may have inadvertently challenged long-standing societal norms, thus facilitating increased female workforce engagement.
+where $LF_F(t)$ represents the female labor force participation in Fukushima Prefecture at time $t$, and $LF_O(t)$ represents the counterfactual which assumes the earthquake did not occur, assuming the parallel trend of control prefectures. $T2$ denotes the end of the impact period (the end of Phase 3).
 
-\subsection{Household level}
+In this model, the present value of the disaster's impact on female labor force participation is captured by the integral. The result of the integration corresponds to the area of the hatched sections (\ding{172}+\ding{173}) in the graph, representing the sum of negative effects during the immediate post-disaster period and positive effects during the disaster recovery period.
+
+For a more detailed analysis, the model can be decomposed as follows:
+
+\begin{equation}
+\int_0^{T1} [LF_F(t) - LF_O(t)] dt + \int_{T1}^{T2} [LF_F(t) - LF_O(t)] dt
+\end{equation}
+
+where $T1$ represents the point in time at which the actual female labor force participation line intersects with the counterfactual line, depicted by the red dashed line in the graph. This equation allows for separate calculation of the negative impact (\ding{172}) and the positive impact (\ding{173}), while still computing their sum.
+
+Utilizing this model enables the quantification of the overall impact of the disaster on female labor force participation, facilitating an analysis that considers both the negative shock in the immediate post-disaster period and the subsequent growth during the disaster recovery phase. This approach provides a comprehensive framework for evaluating the dynamic effects of disasters on gender-specific impacts in affected prefecture.
+
+
+\subsection{Household decision model}
 \label{sec5.1}
 
 This study models how households made economically rational decisions following the Great East Japan Earthquake by utilizing a microdata-based DID analysis, which supports the gender employment gaps identified in regional-level statistical data. This household model suggests that the destruction of communities by the earthquake also disrupted traditional gender norms and local gift economies, potentially forcing women into the labor market.
 
-
-\subsection{Theoretical model}
-\label{sec5.1}
 
 This study constructs a household decision-making model to elucidate the fluctuations in female employment before and after a major earthquake. The model draws upon the agricultural household model framework (Huffman \& El-Osta, 1997; Omamo, 1998; Key, Sadoulet, \& Janvry, 2000), adapting it to the context of disaster-affected urban and rural areas. It incorporates elements from development economics, which suggest an increase in household members' labour supply as a shock-coping strategy.
 The model delineates three distinct phases: the immediate aftermath, the recovery period, and the long-term equilibrium. In Phase 1, it accounts for the exogenous shock's impact on production functions and the disproportionate effect on female employment due to the prevalence of non-regular work among women. Phase 2 captures the interplay between reconstruction demand, household coping strategies necessitating female employment, and government policies promoting women's work opportunities. Finally, Phase 3 models the gradual convergence of female employment levels in affected areas towards the national average as the disaster's impact wanes over time.
