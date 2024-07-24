@@ -7,6 +7,17 @@
 \usepackage{subcaption}
 \usepackage{pifont}
 
+% Graph１ パッケージのインポート
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+% Graph２ パッケージのインポート
+\usepackage{adjustbox}
+\pgfplotsset{compat=newest}
+\usepackage{xcolor}
+
+
 % \usepackage{cite}  % citeパッケージのインポート
 \usepackage{natbib}  % 必要に応じて引用パッケージを使用
 \bibliographystyle{apalike} % 著者年スタイルの指定
@@ -83,7 +94,7 @@ The Great East Japan Earthquake of March 2011 resulted in a tripartite catastrop
 
 Fukushima Prefecture experienced a compound disaster involving both the tsunami triggered by the earthquake and the subsequent nuclear accident. The nuclear incident, in particular, necessitated large-scale evacuations, significantly disrupting local communities and labor markets. This unprecedented situation provides a unique context for examining the long-term socioeconomic impacts of compound disasters.
 
-\subsection{Gender Gap in Japan}
+\subsection{Gender Dimensions of Disaster Risk and Resilience}
 \label{sec5.1}
 
 According to the latest 2024 Global Gender Gap Report by the World Economic Forum (WEF), Japan ranks 118th out of 146 countries, placing it at the bottom among the G7 nations. Particularly, its rankings in the "Economic" and "Political" domains are notably low, with the "Economic" ranking being 120th out of 146 countries. Japan continues to exhibit substantial gender disparities in the economic sector, with the elimination of wage gaps remaining a significant challenge.
@@ -100,7 +111,10 @@ Nearly every empirical study of natural disasters finds short-term declines in e
 \label{sec5.1}
 
 
-In labor economics, the risk adjustment hypothesis posits that during economic shocks or natural disasters, women are more susceptible to labor market exclusion and face higher risks of deteriorating work conditions or unemployment compared to men. This hypothesis suggests that specific labor market subgroups, particularly female and non-regular workers, often function as 'adjustment valves,' absorbing economic shocks. These groups are disproportionately affected, serving as mechanisms to mitigate broader economic impacts. This framework illuminates the gender-based disparities in employment stability and the uneven distribution of economic resilience across worker categories during crises. For instance, \citet{Kim2014ARetention} examines the economic impact of the 2010 earthquake in Haiti, focusing on changes in household composition and employment retention. Authors found that the earthquake caused a significant reduction in employment rates, from 52.6\% prior to the earthquake to 28.6\% five months post-event. Gender disparities were evident, with only 34.2\% of women retaining their employment compared to 55.6\% of men. 
+The risk adjustment hypothesis in labor economics suggests that during economic shocks or natural disasters, women are more vulnerable to labor market exclusion and face higher risks of deteriorating work conditions or unemployment compared to men. 
+
+
+The non-regular workers, often function as 'adjustment valves,' absorbing economic shocks. These groups are disproportionately affected, serving as mechanisms to mitigate broader economic impacts. This framework illuminates the gender-based disparities in employment stability and the uneven distribution of economic resilience across worker categories during crises. For instance, \citet{Kim2014ARetention} examines the economic impact of the 2010 earthquake in Haiti, focusing on changes in household composition and employment retention. Authors found that the earthquake caused a significant reduction in employment rates, from 52.6\% prior to the earthquake to 28.6\% five months post-event. Gender disparities were evident, with only 34.2\% of women retaining their employment compared to 55.6\% of men. 
 
 
 
@@ -123,25 +137,575 @@ On the other hand, development economics posits that households increase their l
 This study tries to fill gaps in the still sparse literature on the impact of natural disasters on gender disparities by differentiating between short-term and long-term effects, addressing the contradictory findings of existing research that suggests either an exacerbation or a reduction of gender gaps.
 
 
-\section{Data and Descriptive Statistics}
+\section{Descriptive Statistics}
 \label{sec4}
 
 
-\subsection{Employment Situation in Fukushima Prefecture}
+Examining the proportion of employed persons aged 15 and over by industry and sex in Fukushima Prefecture, manufacturing accounts for the highest share among males at 23.5\%, followed by construction at 12.9\%. In contrast, construction represents only 2.6\% of female employment (Figure~\ref{fig:fukushima_employment}).
+
+%福島県の男女別15歳以上就業者について、産業別の割合をみると、男性は「製造業」が23.5％と最も高く、次いで「建設業」が12.9％となっている。女性では建設業はわずか2.6%に留まる（Figure 1）。
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{figure}[!htbp]
+\centering 
+\hspace*{-0.2cm} % Position of the graph
+\begin{tikzpicture}[scale=1.20]
+\definecolor{color1}{RGB}{200,200,200} 
+\definecolor{color2}{RGB}{150,150,150} 
+\definecolor{color3}{RGB}{100,100,100}
+\definecolor{color4}{RGB}{250,200,200}
+\definecolor{color5}{RGB}{200,150,150}
+\definecolor{color6}{RGB}{150,100,100}
+\definecolor{color7}{RGB}{100,50,50}
+\definecolor{color8}{RGB}{50,0,0}
+\definecolor{color9}{RGB}{0,0,0}
+
+% Total bar
+\draw[fill=color1, pattern=crosshatch] (2,9) rectangle (2.79,9.7) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 7.9};
+\draw[fill=color2, pattern=north west lines] (2.79,9) rectangle (3.58,9.7) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 7.9};
+\draw[fill=color3, pattern=grid] (3.58,9) rectangle (5.67,9.7) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 20.9};
+\draw[fill=color4, pattern=north east lines] (5.67,9) rectangle (6.10,9.7) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 4.3}; 
+\draw[fill=color5, pattern=dots] (6.10,9) rectangle (7.59,9.7) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 14.9}; 
+\draw[fill=color6, pattern=horizontal lines] (7.59,9) rectangle (8.14,9.7) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 5.5};
+\draw[fill=color7, pattern=vertical lines] (8.14,9) rectangle (9.27,9.7) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 11.3};
+\draw[fill=color8, pattern=crosshatch dots] (9.27,9) rectangle (9.80,9.7) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 5.3};
+\draw[fill=color9, pattern=north east lines] (9.80,9) rectangle (12,9.7) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 22.0}; 
+
+% Male bar
+\draw[fill=color1, pattern=crosshatch] (2,7.7) rectangle (2.81,8.4) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 8.1};
+\draw[fill=color2, pattern=north west lines] (2.81,7.7) rectangle (4.10,8.4) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 12.9};
+\draw[fill=color3, pattern=grid] (4.10,7.7) rectangle (6.45,8.4) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 23.5};
+\draw[fill=color4, pattern=north east lines] (6.45,7.7) rectangle (7.17,8.4) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 7.2}; 
+\draw[fill=color5, pattern=dots] (7.17,7.7) rectangle (8.39,8.4) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 12.2}; 
+\draw[fill=color6, pattern=horizontal lines] (8.39,7.7) rectangle (8.73,8.4) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 3.4};
+\draw[fill=color7, pattern=vertical lines] (8.73,7.7) rectangle (9.13,8.4) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 4.0};
+\draw[fill=color8, pattern=crosshatch dots] (9.13,7.7) rectangle (9.74,8.4) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 6.1};
+\draw[fill=color9, pattern=north east lines] (9.74,7.7) rectangle (12,8.4) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 22.6};
+
+% Female bar
+\draw[fill=color1, pattern=crosshatch] (2,6.4) rectangle (2.74,7.1) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 7.4};
+\draw[fill=color2, pattern=north west lines] (2.74,6.4) rectangle (3.00,7.1) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 2.6};
+\draw[fill=color3, pattern=grid] (3.00,6.4) rectangle (4.83,7.1) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 18.3};
+\draw[fill=color4, pattern=north east lines] (4.83,6.4) rectangle (4.99,7.1) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 1.6}; 
+\draw[fill=color5, pattern=dots] (4.99,6.4) rectangle (6.76,7.1) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 17.7}; 
+\draw[fill=color6, pattern=horizontal lines] (6.76,6.4) rectangle (7.50,7.1) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 7.4};
+\draw[fill=color7, pattern=vertical lines] (7.50,6.4) rectangle (9.35,7.1) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 18.5};
+\draw[fill=color8, pattern=crosshatch dots] (9.35,6.4) rectangle (9.79,7.1) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 4.4};
+\draw[fill=color9, pattern=north east lines] (9.79,6.4) rectangle (12,7.1) node[pos=0.5, fill=white, inner sep=1pt] {\tiny 22.1}; 
+
+% Male to Female guidelines
+\draw[thin] (2,7.7) -- (2,7.1);
+\draw[thin] (2.81,7.7) -- (2.74,7.1);
+\draw[thin] (4.10,7.7) -- (3.00,7.1);
+\draw[thin] (6.45,7.7) -- (4.83,7.1);
+\draw[thin] (7.17,7.7) -- (4.99,7.1);
+\draw[thin] (8.39,7.7) -- (6.76,7.1);
+\draw[thin] (8.73,7.7) -- (7.50,7.1);
+\draw[thin] (9.13,7.7) -- (9.35,7.1);
+\draw[thin] (9.74,7.7) -- (9.79,7.1);
+\draw[thin] (12,7.7) -- (12,7.1);
+
+% Labels
+\node[anchor=east] at (2,9.35) {\small Total};
+\node[anchor=east] at (2,8.05) {\small Male};
+\node[anchor=east] at (2,6.75) {\small Female};
+
+% X-axis
+\draw (2,6) -- (12,6);
+\foreach \x in {0,20,40,60,80,100}
+    \draw (2+\x/10,6) -- (2+\x/10,6.1) node[anchor=north] at (2+\x/10,5.9) {\small \x};
+\foreach \x in {10,30,50,70,90}
+    \draw (2+\x/10,6) -- (2+\x/10,6.05);
+\node[anchor=west, font=\footnotesize] at (12.1,6) {(\%)};
+
+% Legend
+\node[anchor=west, fill=color1, pattern=crosshatch, minimum width=0.5cm, minimum height=0.3cm, draw] at (0,5) {};
+\node[anchor=west] at (0.6,5) {\scriptsize Agriculture, Forestry and Fisheries};
+\node[anchor=west, fill=color2, pattern=north west lines, minimum width=0.5cm, minimum height=0.3cm, draw] at (0,4.5) {};
+\node[anchor=west] at (0.6,4.5) {\scriptsize Construction};
+\node[anchor=west, fill=color3, pattern=grid, minimum width=0.5cm, minimum height=0.3cm, draw] at (0,4) {};
+\node[anchor=west] at (0.6,4) {\scriptsize Manufacturing};
+\node[anchor=west, fill=color4, pattern=north east lines, minimum width=0.5cm, minimum height=0.3cm, draw] at (5,5) {};
+\node[anchor=west] at (5.6,5) {\scriptsize Transportation and Postal Services};
+\node[anchor=west, fill=color5, pattern=dots, minimum width=0.5cm, minimum height=0.3cm, draw] at (5,4.5) {};
+\node[anchor=west] at (5.6,4.5) {\scriptsize Wholesale and Retail Trade};
+\node[anchor=west, fill=color6, pattern=horizontal lines, minimum width=0.5cm, minimum height=0.3cm, draw] at (5,4) {};
+\node[anchor=west] at (5.6,4) {\scriptsize Accommodations and Food Services};
+\node[anchor=west, fill=color7, pattern=vertical lines, minimum width=0.5cm, minimum height=0.3cm, draw] at (10,5) {};
+\node[anchor=west] at (10.6,5) {\scriptsize Medical and Welfare};
+\node[anchor=west, fill=color8, pattern=crosshatch dots, minimum width=0.5cm, minimum height=0.3cm, draw] at (10,4.5) {};
+\node[anchor=west] at (10.6,4.5) {\scriptsize Services (not elsewhere classified)};
+\node[anchor=west, fill=color9, pattern=north east lines, minimum width=0.5cm, minimum height=0.3cm, draw] at (10,4) {};
+\node[anchor=west] at (10.6,4) {\scriptsize Others};
+
+% Annotation and Source
+\node[text width=16.3cm, anchor=west, font=\scriptsize, align=left] at (0,2.5) {Note: "Others" includes "Mining and Quarrying of Stone and Gravel", "Electricity, Gas, Heat Supply and Water", "Information and Communications", "Finance and Insurance", "Real Estate and Goods Rental and Leasing", "Scientific Research, Professional and Technical Services", "Living-Related and Personal Services and Amusement Services", "Education, Learning Support", "Compound Services", "Government (except elsewhere classified)" and "Industries Unable to Classify".};
+
+\node[text width=16.3cm, anchor=west, font=\scriptsize, align=left] at (0,1.5) {Source: Statistics Bureau, Ministry of Internal Affairs and Communications, Japan. "2010 Population Census."};
+
+\end{tikzpicture} 
+\caption{Proportion of Employed Persons Aged 15 and Over by Industry and Sex - Fukushima Pref. (2010)} 
+\label{fig:fukushima_employment}
+
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%福島県の15歳以上就業者について、産業別の労働者割合を年齢層別にみると、津波や原子力発電所の事故災害の影響をもっとも受けた「農林漁業従事者」では男女共に65歳以上の割合が最も高い産業である。 一方で、復興需要の恩恵をもっとも受けた「建設業」は、86.1%が男性労働者で占められている。自然災害影響は、このような元々のジェンダーギャップや世代間ギャップから生じる。
+
+Analysis of Fukushima Prefecture's workforce reveals notable disparities(Figure~\ref{fig:fukushima_Proportion_Employed}). The Agriculture, Forestry, and Fisheries sector, most affected by the tsunami and nuclear disaster, has the highest proportion of workers aged 65+ for both genders. Conversely, the Construction industry, benefiting from reconstruction demand, is 86.1\% male. These pre-existing gender and age disparities in employment distribution significantly influence how natural disasters impact different demographic groups within the workforce.
+
+\begin{figure}[!b]
+\begin{adjustbox}{width=\textwidth}
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.33\textwidth,
+    height=7cm,
+    xbar stacked,
+    xmin=-25,
+    xmax=25,
+    xtick={-25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25},
+    xticklabels={25, 20, 15, 10, 5, 0, 5, 10, 15, 20, 25},
+    xlabel={(\%)},
+    ylabel={Age Group},
+    ytick={1,2,3,4,5,6,7,8,9,10,11},
+    yticklabels={15-19, 20-24, 25-29, 30-34, 35-39, 40-44, 45-49, 50-54, 55-59, 60-64, 65+},
+    title={All Industries},
+    axis y line*=left,
+    axis x line*=bottom,
+    bar width=3.5mm,
+    xticklabel style={font=\tiny},
+    yticklabel style={font=\tiny},
+    xlabel style={font=\normalsize},
+    minor x tick num=1,
+    grid style={line width=.1pt, draw=gray!20},
+    major grid style={line width=.2pt,draw=gray!50},
+]
+\addplot[xbar, fill=olive] coordinates {(-6.2968,11) (-5.7348,10) (-7.0630,9) (-6.4160,8) (-5.8457,7) (-5.4109,6) (-6.0469,5) (-5.5079,4) (-4.5710,3) (-3.1366,2) (-0.6502,1)};
+\addplot[xbar, fill=olive] coordinates {(4.1861,11) (3.5393,10) (5.1758,9) (5.2826,8) (4.9579,7) (4.4568,6) (4.5115,5) (4.0165,4) (3.6677,3) (2.9304,2) (0.5957,1)};
+\node[anchor=east, fill=white] at (axis cs:-8,3) {Male};
+\node[anchor=west, fill=white] at (axis cs:6,3) {Female};
+\end{axis}
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.33\textwidth,
+    height=7cm,
+    xbar stacked,
+    xmin=-30,
+    xmax=25,
+    xtick={-30, -25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25},
+    xticklabels={30, 25, 20, 15, 10, 5, 0, 5, 10, 15, 20, 25},
+    xlabel={(\%)},
+    ytick={1,2,3,4,5,6,7,8,9,10,11},
+    yticklabels={15-19, 20-24, 25-29, 30-34, 35-39, 40-44, 45-49, 50-54, 55-59, 60-64, 65+},
+    yticklabel pos=right,
+    title={Agriculture, Forestry and Fisheries},
+    axis y line*=left,
+    axis x line*=bottom,
+    bar width=3.5mm,
+    xticklabel style={font=\tiny},
+    yticklabel style={font=\tiny},
+    xlabel style={font=\normalsize},
+    minor x tick num=1,
+    grid style={line width=.1pt, draw=gray!20},
+    major grid style={line width=.2pt,draw=gray!50},
+]
+\addplot[xbar, fill=olive] coordinates {(-28.5896,11) (-10.3951,10) (-6.7607,9) (-3.8248,8) (-2.5634,7) (-1.6352,6) (-1.6058,5) (-1.6520,4) (-1.2908,3) (-0.8218,2) (-0.1694,1)};
+\addplot[xbar, fill=olive] coordinates {(20.0734,11) (6.5899,10) (5.5664,9) (3.2718,8) (1.7640,7) (1.1144,6) (0.8792,5) (0.6888,4) (0.4494,3) (0.2394,2) (0.0546,1)};
+\node[anchor=east, fill=white] at (axis cs:-8,3) {Male};
+\node[anchor=west, fill=white] at (axis cs:4,3) {Female};
+\end{axis}
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.33\textwidth,
+    height=7cm,
+    xbar stacked,
+    xmin=-25,
+    xmax=25,
+    xtick={-25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25},
+    xticklabels={25, 20, 15, 10, 5, 0, 5, 10, 15, 20, 25},
+    xlabel={(\%)},
+    ytick={1,2,3,4,5,6,7,8,9,10,11},
+    yticklabels={15-19, 20-24, 25-29, 30-34, 35-39, 40-44, 45-49, 50-54, 55-59, 60-64, 65+},
+    yticklabel pos=right,
+    title={Construction},
+    axis y line*=left,
+    axis x line*=bottom,
+    bar width=3.5mm,
+    xticklabel style={font=\tiny},
+    yticklabel style={font=\tiny},
+    xlabel style={font=\normalsize},
+    minor x tick num=1,
+    grid style={line width=.1pt, draw=gray!20},
+    major grid style={line width=.2pt,draw=gray!50},
+]
+\addplot[xbar, fill=olive] coordinates {(-6.6875,11) (-11.4525,10) (-14.1118,9) (-10.9621,8) (-8.1361,7) (-7.1541,6) (-8.9182,5) (-8.3385,4) (-6.0411,3) (-3.4449,2) (-0.8749,1)};
+\addplot[xbar, fill=olive] coordinates {(1.2939,11) (1.7058,10) (2.1069,9) (1.8165,8) (1.5332,7) (1.4439,6) (1.6165,5) (1.2035,4) (0.7380,3) (0.3726,2) (0.0476,1)};
+\node[anchor=east, fill=white] at (axis cs:-8,3) {Male};
+\node[anchor=west, fill=white] at (axis cs:6,3) {Female};
+\end{axis}
+\end{tikzpicture}
+\end{adjustbox}
+
+% 2行目のグラフ
+\begin{adjustbox}{width=\textwidth}
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.33\textwidth,
+    height=7cm,
+    xbar stacked,
+    xmin=-25,
+    xmax=25,
+    xtick={-25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25},
+    xticklabels={25, 20, 15, 10, 5, 0, 5, 10, 15, 20, 25},
+    xlabel={(\%)},
+    ylabel={Age Group},
+    ytick={1,2,3,4,5,6,7,8,9,10,11},
+    yticklabels={15-19, 20-24, 25-29, 30-34, 35-39, 40-44, 45-49, 50-54, 55-59, 60-64, 65+},
+    title={Manufacturing},
+    axis y line*=left,
+    axis x line*=bottom,
+    bar width=3.5mm,
+    xticklabel style={font=\tiny},
+    yticklabel style={font=\tiny},
+    xlabel style={font=\normalsize},
+    minor x tick num=1,
+    grid style={line width=.1pt, draw=gray!20},
+    major grid style={line width=.2pt,draw=gray!50},
+]
+\addplot[xbar, fill=olive] coordinates {(-2.4548,11) (-3.9043,10) (-6.7497,9) (-6.7481,8) (-7.4452,7) (-7.3451,6) (-8.3323,5) (-7.6527,4) (-6.7811,3) (-5.1740,2) (-0.9664,1)};
+\addplot[xbar, fill=olive] coordinates {(1.2771,11) (2.1461,10) (4.6067,9) (4.9622,8) (4.8095,7) (4.2896,6) (4.3236,5) (3.6345,4) (3.1567,3) (2.7400,2) (0.5002,1)};
+\node[anchor=east, fill=white] at (axis cs:-8,3) {Male};
+\node[anchor=west, fill=white] at (axis cs:6,3) {Female};
+\end{axis}
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.33\textwidth,
+    height=7cm,
+    xbar stacked,
+    xmin=-25,
+    xmax=25,
+    xtick={-25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25},
+    xticklabels={25, 20, 15, 10, 5, 0, 5, 10, 15, 20, 25},
+    xlabel={(\%)},
+    ytick={1,2,3,4,5,6,7,8,9,10,11},
+    yticklabels={15-19, 20-24, 25-29, 30-34, 35-39, 40-44, 45-49, 50-54, 55-59, 60-64, 65+},
+    yticklabel pos=right,
+    title={Transportation and Postal Services},
+    axis y line*=left,
+    axis x line*=bottom,
+    bar width=3.5mm,
+    xticklabel style={font=\tiny},
+    yticklabel style={font=\tiny},
+    xlabel style={font=\normalsize},
+    minor x tick num=1,
+    grid style={line width=.1pt, draw=gray!20},
+    major grid style={line width=.2pt,draw=gray!50},
+]
+\addplot[xbar, fill=olive] coordinates {(-4.0825,11) (-10.0013,10) (-12.6223,9) (-12.8891,8) (-10.6053,7) (-9.1725,6) (-9.1152,5) (-7.3627,4) (-5.4052,3) (-2.7445,2) (-0.3836,1)};
+\addplot[xbar, fill=olive] coordinates {(0.5070,11) (1.0691,10) (1.8274,9) (2.1030,8) (2.3609,7) (2.2154,6) (2.0787,5) (1.4373,4) (1.1948,3) (0.7164,2) (0.1058,1)};
+\node[anchor=east, fill=white] at (axis cs:-8,3) {Male};
+\node[anchor=west, fill=white] at (axis cs:6,3) {Female};
+\end{axis}
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.33\textwidth,
+    height=7cm,
+    xbar stacked,
+    xmin=-25,
+    xmax=25,
+    xtick={-25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25},
+    xticklabels={25, 20, 15, 10, 5, 0, 5, 10, 15, 20, 25},
+    xlabel={(\%)},
+    ytick={1,2,3,4,5,6,7,8,9,10,11},
+    yticklabels={15-19, 20-24, 25-29, 30-34, 35-39, 40-44, 45-49, 50-54, 55-59, 60-64, 65+},
+    yticklabel pos=right,
+    title={Wholesale and Retail Trade},
+    axis y line*=left,
+    axis x line*=bottom,
+    bar width=3.5mm,
+    xticklabel style={font=\tiny},
+    yticklabel style={font=\tiny},
+    xlabel style={font=\normalsize},
+    minor x tick num=1,
+    grid style={line width=.1pt, draw=gray!20},
+    major grid style={line width=.2pt,draw=gray!50},
+]
+\addplot[xbar, fill=olive] coordinates {(-5.6034,11) (-4.4603,10) (-5.3643,9) (-5.1647,8) (-4.7515,7) (-4.5047,6) (-5.3544,5) (-5.1161,4) (-4.4201,3) (-2.9335,2) (-0.6798,1)};
+\addplot[xbar, fill=olive] coordinates {(4.3157,11) (4.1070,10) (6.2549,9) (6.4510,8) (6.0631,7) (5.4397,6) (5.2987,5) (4.7508,4) (4.3911,3) (3.5696,2) (1.0056,1)};
+\node[anchor=east, fill=white] at (axis cs:-8,3) {Male};
+\node[anchor=west, fill=white] at (axis cs:6,3) {Female};
+\end{axis}
+\end{tikzpicture}
+\end{adjustbox}
+
+% 3行目のグラフ
+\begin{adjustbox}{width=\textwidth}
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.33\textwidth,
+    height=7cm,
+    xbar stacked,
+    xmin=-25,
+    xmax=25,
+    xtick={-25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25},
+    xticklabels={25, 20, 15, 10, 5, 0, 5, 10, 15, 20, 25},
+ xlabel={(\%)},
+    ylabel={Age Group},
+    ytick={1,2,3,4,5,6,7,8,9,10,11},
+    yticklabels={15-19, 20-24, 25-29, 30-34, 35-39, 40-44, 45-49, 50-54, 55-59, 60-64, 65+},
+    title={Accommodations and Food Services},
+    axis y line*=left,
+    axis x line*=bottom,
+    bar width=3.5mm,
+    xticklabel style={font=\tiny},
+    yticklabel style={font=\tiny},
+    xlabel style={font=\normalsize},
+    minor x tick num=1,
+    grid style={line width=.1pt, draw=gray!20},
+    major grid style={line width=.2pt,draw=gray!50},
+]
+\addplot[xbar, fill=olive] coordinates {(-3.8505,11) (-3.9093,10) (-4.2855,9) (-3.4547,8) (-2.6611,7) (-2.7884,6) (-3.0647,5) (-2.9217,4) (-2.9119,3) (-3.4410,2) (-1.4697,1)};
+\addplot[xbar, fill=olive] coordinates {(6.1236,11) (7.9950,10) (9.0473,9) (7.6775,8) (6.0158,7) (5.6004,6) (5.7866,5) (4.7206,4) (4.3287,3) (5.2163,2) (2.7297,1)};
+\node[anchor=east, fill=white] at (axis cs:-8,3) {Male};
+\node[anchor=west, fill=white] at (axis cs:6,3) {Female};
+\end{axis}
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.33\textwidth,
+    height=7cm,
+    xbar stacked,
+    xmin=-25,
+    xmax=25,
+    xtick={-25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25},
+    xticklabels={25, 20, 15, 10, 5, 0, 5, 10, 15, 20, 25},
+    xlabel={(\%)},
+    ytick={1,2,3,4,5,6,7,8,9,10,11},
+    yticklabels={15-19, 20-24, 25-29, 30-34, 35-39, 40-44, 45-49, 50-54, 55-59, 60-64, 65+},
+    yticklabel pos=right,
+    title={Medical and Welfare},
+    axis y line*=left,
+    axis x line*=bottom,
+    bar width=3.5mm,
+    xticklabel style={font=\tiny},
+    yticklabel style={font=\tiny},
+    xlabel style={font=\normalsize},
+    minor x tick num=1,
+    grid style={line width=.1pt, draw=gray!20},
+    major grid style={line width=.2pt,draw=gray!50},
+]
+\addplot[xbar, fill=olive] coordinates {(-2.0760,11) (-2.1576,10) (-2.4203,9) (-2.4234,8) (-2.3000,7) (-2.1796,6) (-2.5302,5) (-2.9330,4) (-2.5197,3) (-1.6072,2) (-0.1350,1)};
+\addplot[xbar, fill=olive] coordinates {(1.8123,11) (4.0820,10) (8.0687,9) (10.0736,8) (9.9229,7) (8.4778,6) (8.8545,5) (9.3578,4) (9.1318,3) (6.4750,2) (0.4615,1)};
+\node[anchor=east, fill=white] at (axis cs:-8,2) {Male};
+\node[anchor=west, fill=white] at (axis cs:6,2) {Female};
+\end{axis}
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.33\textwidth,
+    height=7cm,
+    xbar stacked,
+    xmin=-25,
+    xmax=25,
+    xtick={-25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25},
+    xticklabels={25, 20, 15, 10, 5, 0, 5, 10, 15, 20, 25},
+    xlabel={(\%)},
+    ytick={1,2,3,4,5,6,7,8,9,10,11},
+    yticklabels={15-19, 20-24, 25-29, 30-34, 35-39, 40-44, 45-49, 50-54, 55-59, 60-64, 65+},
+    yticklabel pos=right,
+    title={Services (not elsewhere classified)},
+    axis y line*=left,
+    axis x line*=bottom,
+    bar width=3.5mm,
+    xticklabel style={font=\tiny},
+    yticklabel style={font=\tiny},
+    xlabel style={font=\normalsize},
+    minor x tick num=1,
+    grid style={line width=.1pt, draw=gray!20},
+    major grid style={line width=.2pt,draw=gray!50},
+]
+\addplot[xbar, fill=olive] coordinates {(-7.5892,11) (-9.4724,10) (-9.3730,9) (-7.1919,8) (-6.1034,7) (-5.9352,6) (-6.6690,5) (-6.1825,4) (-4.8061,3) (-2.8135,2) (-0.5534,1)};
+\addplot[xbar, fill=olive] coordinates {(1.2939,11) (1.7058,10) (2.1069,9) (1.8165,8) (1.5332,7) (1.4439,6) (1.6165,5) (1.2035,4) (0.7380,3) (0.3726,2) (0.0476,1)};
+\node[anchor=east, fill=white] at (axis cs:-8,3) {Male};
+\node[anchor=west, fill=white] at (axis cs:6,3) {Female};
+\end{axis}
+\end{tikzpicture}
+\end{adjustbox}
+
+\begin{flushleft}
+\footnotesize
+Source: Statistics Bureau, Ministry of Internal Affairs and Communications, Japan. "2010 Population Census."
+\end{flushleft}
+
+
+\caption{Proportion of Employed Persons Aged 15 and Over by Industry, Age (5-year groups), and Sex - Fukushima Pref. (2010)}
+\label{fig:fukushima_Proportion_Employed}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%福島県の職業(Occupation)別の男女別15歳以上就業者について、従業上の地位別（Employment type）の割合をみると、全職業（Total）では、男性の場合、「正規の職員・従業員」の割合は「事務従事者」が62.7％だが女性では40.1%である。一方、「パート・アルバイト・その他」の割合は、女性が36.8%に対して男性は9.8%である。自然災害が非正規労働者により大きな負の影響を及ぼすことが知られており、このような雇用形態のジェンダー格差は、そのまま自然災害影響のジェンダーギャップとして現れる。特筆すべきは、農林水産業では73.0%の男性が「Self-employed」と回答しているのに対し、女性の方は81.2%が「Family worker」と回答していることである。つまりFamily businessにおいては夫がオーナーであり、妻はその従業員であるという性別役割分担の存在が見てとれる。これは自然災害時に、夫よりも妻の労働の増減が危機に対する調整弁の役割を果たすことを意味する。
+
+
+In Fukushima Prefecture, employment types among those aged 15 and over vary significantly by gender across occupations (Figure~\ref{fig:fukushima_Proportion_Occupation}). While 62.7\% of male clerical workers are regular employees, only 40.1\% of females are. Conversely, 36.8\% of women are part-time or temporary workers, compared to 9.8\% of men. This gender disparity in employment status can lead to disproportionate impacts during natural disasters. Notably, in agriculture, forestry, and fishery, 73.0\% of men are self-employed, while 81.2\% of women are family workers. This suggests a gendered division of labor in family businesses, where husbands are owners and wives are employees. Consequently, women's labor may serve as a buffer during crises, being more susceptible to fluctuations than men's.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[scale=0.65,xshift=-2cm]
+\definecolor{color1}{RGB}{128,128,128}
+\definecolor{color2}{RGB}{200,200,200}
+\definecolor{color3}{RGB}{220,220,220}
+\definecolor{color4}{RGB}{180,180,180}
+\definecolor{color5}{RGB}{100,100,100}
+\definecolor{color6}{RGB}{60,60,60}
+
+% Function to draw a stacked bar
+\newcommand{\stackedbar}[8]{
+    \draw[fill=color1] (#1,#2) rectangle (#1+#3/10,#2+0.8);
+    \pgfmathsetmacro{\result}{(#3 >= 3.5) ? 1 : 0}
+    \ifnum\result>0
+        \node[font=\tiny,fill=white,text=black,inner sep=1pt] at (#1+#3/20,#2+0.4) {#3};
+    \fi
+    \draw[fill=color2, pattern=crosshatch] (#1+#3/10,#2) rectangle (#1+#3/10+#4/10,#2+0.8);
+    \pgfmathsetmacro{\result}{(#4 >= 3.5) ? 1 : 0}
+    \ifnum\result>0
+        \node[font=\tiny,fill=white,text=black,inner sep=1pt] at (#1+#3/10+#4/20,#2+0.4) {#4};
+    \fi
+    \draw[fill=color3, pattern=dots] (#1+#3/10+#4/10,#2) rectangle (#1+#3/10+#4/10+#5/10,#2+0.8);
+    \pgfmathsetmacro{\result}{(#5 >= 3.5) ? 1 : 0}
+    \ifnum\result>0
+        \node[font=\tiny,fill=white,text=black,inner sep=1pt] at (#1+#3/10+#4/10+#5/20,#2+0.4) {#5};
+    \fi
+    \draw[fill=color4, pattern=grid] (#1+#3/10+#4/10+#5/10,#2) rectangle (#1+#3/10+#4/10+#5/10+#6/10,#2+0.8);
+    \pgfmathsetmacro{\result}{(#6 >= 3.5) ? 1 : 0}
+    \ifnum\result>0
+        \node[font=\tiny,fill=white,text=black,inner sep=1pt] at (#1+#3/10+#4/10+#5/10+#6/20,#2+0.4) {#6};
+    \fi
+    \draw[fill=color5, pattern=north east lines] (#1+#3/10+#4/10+#5/10+#6/10,#2) rectangle (#1+#3/10+#4/10+#5/10+#6/10+#7/10,#2+0.8);
+    \pgfmathsetmacro{\result}{(#7 >= 3.5) ? 1 : 0}
+    \ifnum\result>0
+        \node[font=\tiny,fill=white,text=black,inner sep=1pt] at (#1+#3/10+#4/10+#5/10+#6/10+#7/20,#2+0.4) {#7};
+    \fi
+    \draw[fill=color6, pattern=horizontal lines] (#1+#3/10+#4/10+#5/10+#6/10+#7/10,#2) rectangle (#1+10,#2+0.8);
+    \pgfmathsetmacro{\result}{(#8 >= 3.5) ? 1 : 0}
+    \ifnum\result>0
+        \node[font=\tiny,fill=white,text=black,inner sep=1pt] at (#1+#3/10+#4/10+#5/10+#6/10+#7/10+#8/20,#2+0.4) {#8};
+    \fi
+}
+
+% Male bars
+\begin{scope}[xshift=-5.5cm]
+\stackedbar{0}{11}{62.7}{6.7}{15.2}{2.2}{9.8}{2.3}
+\node[anchor=east, text width=2.6cm, align=right] at (-0.2,11.4) {\scriptsize Total};
+\stackedbar{0}{10}{24.3}{68.9}{6.1}{0}{0.7}{0}
+\node[anchor=east, text width=2.6cm, align=right] at (-0.2,10.4) {\scriptsize\parbox[t]{2.8cm}{\setstretch{0.8}\raggedleft Administrative and managerial}};
+\stackedbar{0}{9}{73.2}{6.6}{13.6}{0.8}{5.2}{0.6}
+\node[anchor=east, text width=2.6cm, align=right] at (-0.2,9.4) {\scriptsize\parbox[t]{2.8cm}{\setstretch{0.8}\raggedleft Professional and technical}};
+\stackedbar{0}{8}{86.8}{2.9}{0.7}{1.2}{8.0}{0.3}
+\node[anchor=east, text width=2.6cm, align=right] at (-0.2,8.4) {\scriptsize Clerical};
+\stackedbar{0}{7}{63.2}{10.9}{13.7}{0.7}{9.9}{1.6}
+\node[anchor=east, text width=2.6cm, align=right] at (-0.2,7.4) {\scriptsize Sales};
+\stackedbar{0}{6}{47.5}{4.3}{21.9}{1.4}{20.4}{4.3}
+\node[anchor=east, text width=2.6cm, align=right] at (-0.2,6.4) {\scriptsize Service};
+\stackedbar{0}{5}{82.4}{0.1}{0.7}{0}{16.7}{0}
+\node[anchor=east, text width=2.6cm, align=right] at (-0.2,5.4) {\scriptsize Security};
+\stackedbar{0}{4}{8.4}{1.0}{73.0}{0.4}{3.9}{13.2}
+\node[anchor=east, text width=2.6cm, align=right] at (-0.2,4.4) {\scriptsize\parbox[t]{2.8cm}{\setstretch{0.8}\raggedleft Agriculture, forestry and fishery}};
+\stackedbar{0}{3}{74.1}{3.5}{8.1}{5.4}{7.2}{1.5}
+\node[anchor=east, text width=2.6cm, align=right] at (-0.2,3.4) {\scriptsize\parbox[t]{2.8cm}{\setstretch{0.8}\raggedleft Manufacturing}};
+\stackedbar{0}{2}{79.8}{1.5}{3.4}{2.4}{12.6}{0.2}
+\node[anchor=east, text width=2.6cm, align=right] at (-0.2,2.4) {\scriptsize\parbox[t]{2.8cm}{\setstretch{0.8}\raggedleft Transport and machine operation}};
+\stackedbar{0}{1}{63.0}{7.1}{19.2}{0}{8.4}{2.2}
+\node[anchor=east, text width=2.6cm, align=right] at (-0.2,1.4) {\scriptsize\parbox[t]{2.8cm}{\setstretch{0.8}\raggedleft Construction and mining}};
+\stackedbar{0}{0}{53.9}{2.1}{7.2}{5.7}{30.1}{1.0}
+\node[anchor=east, text width=2.6cm, align=right] at (-0.2,0.4) {\scriptsize\parbox[t]{2.8cm}{\setstretch{0.8}\raggedleft Carrying, cleaning, packaging}};
+
+% X-axis for Male
+\draw (0,0) -- (10,0);
+\foreach \x in {0,1,...,10}
+    \draw (\x,0) -- (\x,-0.2) node[anchor=north] {\tiny \ifnum\x=0 0\else\x0\fi};
+\node[anchor=west] at (10,0) {\tiny (\%)};
+
+% Label for Male
+\node[anchor=center] at (5,12.5) {\small Male};
+\end{scope}
+
+% Female bars
+\begin{scope}[xshift=5.5cm]
+\stackedbar{0}{11}{40.1}{3.0}{4.8}{3.0}{36.8}{11.0}
+\stackedbar{0}{10}{9.5}{79.9}{8.9}{0}{1.1}{0.6}
+\stackedbar{0}{9}{73.3}{1.0}{4.9}{0.9}{18.7}{1.2}
+\stackedbar{0}{8}{54.6}{6.3}{0.4}{3.6}{29.5}{5.5}
+\stackedbar{0}{7}{28.7}{3.2}{6.0}{1.3}{52.4}{8.3}
+\stackedbar{0}{6}{31.6}{1.3}{9.1}{1.9}{48.3}{7.7}
+\stackedbar{0}{5}{71.2}{0.2}{0.3}{0}{27.8}{0}
+\stackedbar{0}{4}{2.5}{0.4}{9.9}{0.1}{5.9}{81.2}
+\stackedbar{0}{3}{41.8}{1.1}{1.9}{7.9}{40.7}{6.6}
+\stackedbar{0}{2}{48.7}{2.7}{2.4}{5.1}{35.5}{5.5}
+\stackedbar{0}{1}{38.5}{8.2}{3.5}{0}{18.8}{30.9}
+\stackedbar{0}{0}{15.1}{0.8}{4.7}{4.4}{72.2}{2.8}
+
+% X-axis for Female
+\draw (0,0) -- (10,0);
+\foreach \x in {0,1,...,10}
+    \draw (\x,0) -- (\x,-0.2) node[anchor=north] {\tiny \ifnum\x=0 0\else\x0\fi};
+\node[anchor=west] at (10,0) {\tiny (\%)};
+
+% Label for Female
+\node[anchor=center] at (5,12.5) {\small Female};
+\end{scope}
+
+% Legend (2 rows, 3 columns)
+\node[anchor=center, fill=color1, minimum width=0.4cm, minimum height=0.2cm, draw] at (-6.5,-2) {};
+\node[anchor=west] at (-6,-2) {\tiny Regular employees};
+\node[anchor=center, fill=color2, pattern=crosshatch, minimum width=0.4cm, minimum height=0.2cm, draw] at (0,-2) {};
+\node[anchor=west] at (0.5,-2) {\tiny Executives};
+\node[anchor=center, fill=color3, pattern=dots, minimum width=0.4cm, minimum height=0.2cm, draw] at (6.5,-2) {};
+\node[anchor=west] at (7,-2) {\tiny Self-employed};
+\node[anchor=center, fill=color4, pattern=grid, minimum width=0.4cm, minimum height=0.2cm, draw] at (-6.5,-2.7) {};
+\node[anchor=west] at (-6,-2.7) {\tiny Dispatched workers};
+\node[anchor=center, fill=color5, pattern=north east lines, minimum width=0.4cm, minimum height=0.2cm, draw] at (0,-2.7) {};
+\node[anchor=west] at (0.5,-2.7) {\tiny Part-time, temporary workers};
+\node[anchor=center, fill=color6, pattern=horizontal lines, minimum width=0.4cm, minimum height=0.2cm, draw] at (6.5,-2.7) {};
+\node[anchor=west] at (7,-2.7) {\tiny Family workers};
+
+% Note and Source
+\node[anchor=west] at (-8,-4) {\scriptsize Note: Data for employed persons aged 15 and over in Fukushima Prefecture. Occupations not classifiable are excluded.};
+\node[anchor=west] at (-8,-4.5) {\scriptsize Source: Statistics Bureau, Ministry of Internal Affairs and Communications, Japan. "2010 Population Census."};
+
+\end{tikzpicture}
+\caption{Proportion of Employed Persons Aged 15 and Over by Occupation, Employment types, and Sex - Fukushima Pref. (2010)}
+\label{fig:fukushima_Proportion_Occupation}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{The Impact on Employment and Unemployment in 2011}
 \label{sec4.1}
 
 The employment and unemployment landscape in fiscal year 2011 was severely impacted by the Great East Japan Earthquake on March 11, 2011. The earthquake and subsequent tsunami, coupled with the severe nuclear incident at the Fukushima Daiichi Nuclear Power Plant, led to business closures, mass evacuation of residents both within and outside the prefecture, and reputational damage. These factors resulted in an exceptionally grave employment situation. Initially, there was a sharp increase in job seekers and unemployment insurance recipients. However, the employment situation gradually improved, primarily due to an upsurge in job openings related to post-disaster reconstruction, particularly in the construction sector. Consequently, the monthly effective job openings-to-applicants ratio rose to 0.70 in November 2011, surpassing the national average of 0.69 for the first time in 10 years and 6 months.
 
 
-\subsection{Microdata sets}
+\subsection{Regional Data Analysis}
 \label{sec4.1}
 
-To elucidate the causal relationship and mechanisms through which the Great East Japan Earthquake affected the Gender Employment Gap in the disaster-affected regions, this study emphasizes the necessity of analyzing not only regional-level economic statistical panel data but also individual-level microdata pertaining to various socio-economic attributes. The microdata sets employed in this study include:
-
-\subsection{Regional data analysis}
-\label{sec4.1}
-
-Figure 1 illustrates the number of new job openings-to-applicants ratio recorded at Hello Work, Japan’s public employment security office, which maintains a comprehensive database of current job vacancies accessible to all citizens. 
+Figure~\ref{fig:new_job_openings} illustrates the number of new job openings-to-applicants ratio recorded at Hello Work, Japan’s public employment security office, which maintains a comprehensive database of current job vacancies accessible to all citizens. 
 
 \begin{figure}[h!]
     \centering
@@ -151,26 +715,21 @@ Figure 1 illustrates the number of new job openings-to-applicants ratio recorded
 \end{figure}
 
 
-\newpage
-
 Although the number of job openings in the three disaster-affected prefectures of Iwate, Miyagi, and Fukushima initially decreased significantly immediately after the disaster, they have since outperformed the national average. This improvement is largely attributed to the reconstruction demand, including a surge in the construction industry. The first research question of this study investigates how the gender employment gap has evolved under such circumstances.
 
-
-\newpage
-
-Figure 2 shows a long-term trend of the proportion of women job seekers among total new job applications submitted to Hello Work in Fukushima Prefecture. A higher proportion suggests a narrowing gender employment gap. 
+Figure~\ref{fig:fukushima_Women_ratio_on_applicant} shows a long-term trend of the proportion of women job seekers among total new job applications submitted to Hello Work in Fukushima Prefecture. A higher proportion suggests a narrowing gender employment gap. 
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.9\textwidth]{Women ratio on the number of job applicants.jpg}  % 幅を本文の80%に設定
     \caption{Women ratio on the number of applicants in Fukushima Pref.}
-    \label{fig:women_ratio_fukushima}
+    \label{fig:fukushima_Women_ratio_on_applicant}
 \end{figure}
 
 
 The graph reveals that in Fukushima Prefecture, prior to the disaster, from 2008 to the earthquake, the proportion of male job seekers had increased due to the impact of the Lehman Shock. However, post-disaster, there has been a gradual increase in the proportion of female job seekers. In the disaster-affected areas, there is a potential long-term trend of increasing female labor force participation.
 
-Figure 3 presents a time-series graph showing the proportion of active women job seekers among total job applications submitted to Hello Work in Fukushima Prefecture.
+Figure~\ref{fig:women_ratio_fukushima} presents a time-series graph showing the proportion of active women job seekers among total job applications submitted to Hello Work in Fukushima Prefecture. Labor market trends in Fukushima Prefecture over the past two decades reveal three distinct phases. During the 2008-2010 global financial crisis, the proportion of female job seekers decreased, suggesting a greater impact on male employment. Following the 2011 Great East Japan Earthquake, there was a sustained increase in the proportion of female job seekers, a trend that persisted throughout the post-disaster period. Since 2020, the COVID-19 pandemic has resulted in a slight decline in the female share of job seekers, potentially indicating a shift in labor market dynamics.
 
 \begin{figure}[h!]
     \centering
@@ -182,23 +741,19 @@ Figure 3 presents a time-series graph showing the proportion of active women job
 
 \newpage
 
-Labor market trends in Fukushima Prefecture over the past two decades reveal three distinct phases. During the 2008-2010 global financial crisis, the proportion of female job seekers decreased, suggesting a greater impact on male employment. Following the 2011 Great East Japan Earthquake, there was a sustained increase in the proportion of female job seekers, a trend that persisted throughout the post-disaster period. Since 2020, the COVID-19 pandemic has resulted in a slight decline in the female share of job seekers, potentially indicating a shift in labor market dynamics.
-
-\newpage
-
-Figure 4 illustrates both short-term (upper graph) and long-term (lower graph) changes in unemployment insurance recipients in Fukushima Prefecture following the Earthquake. Regarding short-term effects, while overall recipient numbers spiked briefly before returning to pre-disaster levels within a year, the proportion of female recipients also showed a notable increase. This percentage rose from 52-53\% pre-disaster to a peak of 57.2\% in August 2011, five months post-earthquake, before gradually declining. Notably, this peak was 1.7 percentage points higher than the nationwide figure. This trend aligns with reports of heightened short-term employment challenges for women, particularly in heavily impacted coastal areas where female-dominated industries like seafood processing, which employed many part-time women workers, suffered significant damage. Conversely, long-term effects reveal a contrasting trend, with the proportion of female recipients in Fukushima declining relative to the national average. This disparity reached its maximum in 2017, with Fukushima's 55.4\% being 4.7 percentage points lower than the nationwide figure of 60.1\%.
+Figure~\ref{fig:women_ratio_fukushima2} illustrates both short-term (upper graph) and long-term (lower graph) changes in unemployment insurance recipients in Fukushima Prefecture following the Earthquake. Regarding short-term effects, while overall recipient numbers spiked briefly before returning to pre-disaster levels within a year, the proportion of female recipients also showed a notable increase. This percentage rose from 52-53\% pre-disaster to a peak of 57.2\% in August 2011, five months post-earthquake, before gradually declining. Notably, this peak was 1.7 percentage points higher than the nationwide figure. This trend aligns with reports of heightened short-term employment challenges for women, particularly in heavily impacted coastal areas where female-dominated industries like seafood processing, which employed many part-time women workers, suffered significant damage. Conversely, long-term effects reveal a contrasting trend, with the proportion of female recipients in Fukushima declining relative to the national average. This disparity reached its maximum in 2017, with Fukushima's 55.4\% being 4.7 percentage points lower than the nationwide figure of 60.1\%.
 
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.9\textwidth]{Number of Actual Unemployment Insurance Recipients2.jpeg}  % 幅を本文の80%に設定
     \caption{Women ratio on the number of Unemployment Insurance Recipients in Fukushima Pref.}
-    \label{fig:women_ratio_fukushima}
+    \label{fig:women_ratio_fukushima2}
 \end{figure}
 
 \newpage
 
-Figure 5 presents a line graph illustrating the number of unemployment insurance decisions in Fukushima Prefecture, along with the proportion of female applicants relative to total applicants. The graph also includes the national average for comparison. 
+Figure~\ref{fig:employment_insurance_decisions} presents a line graph illustrating the number of unemployment insurance decisions in Fukushima Prefecture, along with the proportion of female applicants relative to total applicants. The graph also includes the national average for comparison. From this graph, it is evident that in Fukushima Prefecture, the proportion of female applicants for unemployment insurance has shown a declining trend post-disaster. This suggests a potential improvement in the labor market conditions for female workers in the disaster-affected areas over the longer term.
 
 \begin{figure}[h!]
     \centering
@@ -207,21 +762,22 @@ Figure 5 presents a line graph illustrating the number of unemployment insurance
     \label{fig:employment_insurance_decisions}
 \end{figure}
 
-From this graph, it is evident that in Fukushima Prefecture, the proportion of female applicants for unemployment insurance has shown a declining trend post-disaster. This suggests a potential improvement in the labor market conditions for female workers in the disaster-affected areas over the longer term.
 
 \newpage
 
-\subsection{Data sets}
+\subsection{Microdata sets}
 \label{sec5.1}
 
-This study emphasizes the necessity of analyzing not only regional-level economic statistical panel data but also individual-level microdata pertaining to various socio-economic attributes. The microdatasets employed in this study include:
+To elucidate the causal relationship and mechanisms through which the Great East Japan Earthquake affected the Gender Employment Gap in the disaster-affected regions, this study emphasizes the necessity of analyzing not only regional-level economic statistical panel data but also individual-level microdata pertaining to various socio-economic attributes. The microdata sets employed in this study include:
 
-\begin{table}[h]
+\begin{table}[h!]
     \centering
     \caption{Individual-level Surveys}
     \label{tab:annual_income}
     \includegraphics[width=0.9\textwidth]{Statistical surveys.png}  % 幅を本文の80%に設定
 \end{table}
+
+\newpage
 
 \subsection{Empirical model}
 \label{sec5.1}
@@ -276,20 +832,15 @@ This specification allows for estimating the dynamic treatment effects over an e
 
 Using individual-level data from the Japanese General Social Surveys (JGSS), I investigate changes in individual annual income by gender between the three disaster-affected prefectures and other prefectures before and after the earthquake. The JGSS dataset consists of cross-sectional data collected in 2000, 2001, 2002, 2003, 2005, 2006, 2008, 2010, 2012, 2015, 2016, 2017, and 2018, provided by the JGSS Research Center at Osaka University of Commerce. This survey includes responses from over 20,000 individuals aged 20 to 89 who completed self-administered questionnaires. 
 
-For example, using pooled DID analysis methodology, I present the results in Figure 4, which indicate a statistically significant increase in income among women in the disaster-affected prefectures when comparing the periods before (2000 to 2010) and after (2012 to 2018) the earthquake, over a sufficiently long-term horizon.
 
+The pre/post income band difference for affected prefecture women was statistically significant (Table 3; T-value: -1.849, P-value: 0.065). As Figure~\ref{fig:Kernel_density} and Table 3 shows, only this ‘Women in affected prefectures’ group's average income bands shifted right (increased) pre/post-disaster.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.9\textwidth]{Kernel density graphs of respondent’s annual income from main job.png}  % 幅を本文の80%に設定
     \caption{Kernel density graphs of respondent’s annual income from main job (Income bands, N= 20,119)}
-    \label{fig:conceptual_model}
+    \label{fig:Kernel_density}
 \end{figure}
-
-
-\newpage
-
-The pre/post income band difference for affected prefecture women was statistically significant (Table 3; T-value: -1.849, P-value: 0.065). As Figure 6 and Table 3 shows, only this ‘Women in affected prefectures’ group's average income bands shifted right (increased) pre/post-disaster.
 
 
 \begin{table}[h!]
@@ -307,7 +858,7 @@ The pre/post income band difference for affected prefecture women was statistica
 \subsection{Conceptual framework}
 \label{sec5.1}
 
-The case of the Great East Japan Earthquake illustrates the complexity of the reconstruction process and rational household responses when communities are disrupted by the disasters. Figure 7 presents changes in female labor force participation in a disaster-affected prefecture overtime as a conceptual framework for understanding overall effect. $T0$ represents the time point when the earthquake occurred. 
+The case of the Great East Japan Earthquake illustrates the complexity of the reconstruction process and rational household responses when communities are disrupted by the disasters. Figure~\ref{fig:conceptual_model} presents changes in female labor force participation in a disaster-affected prefecture overtime as a conceptual framework for understanding overall effect. $T0$ represents the time point when the earthquake occurred. 
 
 At Phase 1, according to the Risk Adjustment Hypothesis, an exogenous shock would alter the production function of both sellers and buyers, disproportionately affecting female employment due to the higher prevalence of non-regular workers among women.
 
@@ -323,11 +874,10 @@ At Phase 3, in the long term, the impact of the disaster gradually diminishes, a
     \label{fig:conceptual_model}
 \end{figure}
 
-
 Initially, these events disproportionately impacted female workers negatively. However, the earthquake and nuclear disaster potentially accelerated women's labor market participation by fundamentally disrupting communities bound by traditional gender roles. In the short term, the disaster and nuclear accident had a more severe negative impact on female workers. However, in the long term, this catastrophic event, while devastating, may have inadvertently challenged long-standing societal norms, thus facilitating increased female workforce engagement. The conceptual framework for considering gender dynamics and disaster impacts adapted the below basic model which captures the change in female labor force participation overtime, measuring its cumulative effect:
 
 \begin{equation}
-\int_0^{T2} [LF_F(t) - LF_O(t)] dt
+\int_{T0}^{T2} [LF_F(t) - LF_O(t)] dt
 \end{equation}
 
 where $LF_F(t)$ represents the female labor force participation in Fukushima Prefecture at time $t$, and $LF_O(t)$ represents the counterfactual which assumes the earthquake did not occur, assuming the parallel trend of control prefectures. $T2$ denotes the end of the impact period (the end of Phase 3).
@@ -337,7 +887,7 @@ In this model, the present value of the disaster's impact on female labor force 
 For a more detailed analysis, the model can be decomposed as follows:
 
 \begin{equation}
-\int_0^{T1} [LF_F(t) - LF_O(t)] dt + \int_{T1}^{T2} [LF_F(t) - LF_O(t)] dt
+\int_{T0}^{T1} [LF_F(t) - LF_O(t)] dt + \int_{T1}^{T2} [LF_F(t) - LF_O(t)] dt
 \end{equation}
 
 where $T1$ represents the point in time at which the actual female labor force participation line intersects with the counterfactual line, depicted by the red dashed line in the graph. This equation allows for separate calculation of the negative impact (\ding{172}) and the positive impact (\ding{173}), while still computing their sum.
