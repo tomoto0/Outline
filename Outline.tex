@@ -115,6 +115,9 @@ The ‘Act on Promotion of Women’s Participation and Advancement in the Workpl
 
 Nearly every empirical study of natural disasters finds short-term declines in either income or employment especially for groups vulnerable to disasters, such as primary industry workers, non-regular workers, women, and the elderly. 
 
+%The exact magnitude of such effects on output is nevertheless widely debated. Some authors argue that earthquakes (and natural disasters in general) have significant negative effects on economic growth (Barro and i Martin 2003, Raddatz 2009). Recent work also notes potential spillovers propagating throughout the economy via trade linkages and supply chains (The et al. 2011, Ruta et al. 2021). Others, however, find mild or even positive effects on growth (Albala-Bertrand 1993, Barone and Mocetti 2014, Caselli and Malhotra 2004, Loayza et al. 2012, Porcelli and Trezzi 2019, Skidmore and Toya 2002).
+
+
 \subsection{Literature on a risk adjustment hypothesis}
 \label{sec5.1}
 
@@ -123,7 +126,6 @@ The risk adjustment hypothesis in labor economics suggests that during economic 
 
 
 The non-regular workers, often function as 'adjustment valves,' absorbing economic shocks. These groups are disproportionately affected, serving as mechanisms to mitigate broader economic impacts. This framework illuminates the gender-based disparities in employment stability and the uneven distribution of economic resilience across worker categories during crises. For instance, \citet{Kim2014ARetention} examines the economic impact of the 2010 earthquake in Haiti, focusing on changes in household composition and employment retention. Authors found that the earthquake caused a significant reduction in employment rates, from 52.6\% prior to the earthquake to 28.6\% five months post-event. Gender disparities were evident, with only 34.2\% of women retaining their employment compared to 55.6\% of men. 
-
 
 
 \citet{Groger2016InternalTyphoon} identified significant income shocks from Typhoon Ketsana in Vietnam using satellite imagery and household panel data. They found that affected households experienced a 10\% income decline, primarily due to crop losses. The study revealed that internal labor migration to urban areas served as a crucial coping mechanism, with households leveraging both existing migrant networks and sending new migrants to mitigate economic impacts through remittances.
@@ -139,8 +141,6 @@ On the other hand, development economics posits that households increase their l
 
 
 \citet{Canessa2021WomensShocks} demonstrate that natural disasters can increase women's labor force participation. Using georeferenced longitudinal household panel data and a difference-in-differences approach, they found that severe flooding in Bangladesh led to a 13 percentage point increase in women's employment probability. This effect was particularly pronounced among lower-income households and women previously engaged in unpaid family farm work. The study reveals that women entered the workforce to mitigate income losses, especially in agriculture-dependent households. Additionally, women who transitioned to paid work outside family farms experienced increased household decision-making power, supporting theories of economic empowerment through independent income.
-
-
 
 This study tries to fill gaps in the still sparse literature on the impact of natural disasters on gender disparities by differentiating between short-term and long-term effects, addressing the contradictory findings of existing research that suggests either an exacerbation or a reduction of gender gaps.
 
@@ -264,7 +264,7 @@ Examining the proportion of employed persons aged 15 and over by industry and se
 
 %福島県の15歳以上就業者について、産業別の労働者割合を年齢層別にみると、津波や原子力発電所の事故災害の影響をもっとも受けた「農林漁業従事者」では男女共に65歳以上の割合が最も高い産業である。 一方で、復興需要の恩恵をもっとも受けた「建設業」は、86.1%が男性労働者で占められている。自然災害影響は、このような元々のジェンダーギャップや世代間ギャップから生じる。
 
-Analysis of Fukushima Prefecture's workforce reveals notable disparities(Figure~\ref{fig:fukushima_Proportion_Employed}). The Agriculture, Forestry, and Fisheries sector, most affected by the tsunami and nuclear disaster, has the highest proportion of workers aged 65+ for both genders. Conversely, the Construction industry, benefiting from reconstruction demand, is 86.1\% male. These pre-existing gender and age disparities in employment distribution significantly influence how natural disasters impact different demographic groups within the workforce.
+Analysis of Fukushima Prefecture's workforce reveals notable disparities (Figure~\ref{fig:fukushima_Proportion_Employed}). The Agriculture, Forestry, and Fisheries sector, most affected by the tsunami and nuclear disaster, has the highest proportion of workers aged 65+ for both genders. Conversely, the Construction industry, benefiting from reconstruction demand, is 86.1\% male. These pre-existing gender and age disparities in employment distribution significantly influence how natural disasters impact different demographic groups within the workforce.
 
 \begin{figure}[!b]
 \begin{adjustbox}{width=\textwidth}
@@ -774,10 +774,10 @@ Figure~\ref{fig:employment_insurance_decisions} presents a line graph illustrati
 
 \newpage
 
-\subsection{Microdata sets}
+\subsection{Microdata sets analysis}
 \label{sec5.1}
 
-To elucidate the causal relationship and mechanisms through which the Great East Japan Earthquake affected the Gender Employment Gap in the disaster-affected regions, this study emphasizes the necessity of analyzing not only regional-level economic statistical panel data but also individual-level microdata pertaining to various socio-economic attributes. The microdata sets employed in this study include:
+To elucidate the causal relationship and mechanisms through which the Great East Japan Earthquake affected the Gender Employment Gap in the disaster-affected regions, this study emphasizes the necessity of analyzing not only regional-level economic statistical panel data but also individual-level microdata pertaining to various socio-economic attributes.
 
 \begin{table}[h!]
     \centering
@@ -800,7 +800,7 @@ This study statistically estimates whether trends similar to those observed at t
 
 The empirical strategy of this study employs DID methodology. For the implementation of DID analysis, I employ a pooled DiD methodology, which is particularly suitable for non-continuous time series data, such as quinquennial census surveys. This approach involves aggregating data into two distinct periods: pre-earthquake and post-earthquake. In cases where continuous annual data is unavailable, this method allows for the bifurcation of the dataset into these two critical temporal segments. By doing so, I can estimate the average treatment effect across the aggregated pre-treatment and post-treatment periods, effectively capturing the impact of the seismic event despite the temporal gaps in data collection. This strategy is especially advantageous when dealing with infrequently collected cross-sectional data, as it maximizes the utilization of available information while adhering to the fundamental principles of DiD analysis.
 
-The econometric model is specified as follows:
+The model is specified as follows:
 
 \begin{equation}
 Y_{ipt} = \alpha_{p} + \beta D_{p} + \eta Post_{t} + \gamma (D_{pt} * Post_{t}) + X_{ipt} + \epsilon_{ipt}
@@ -818,9 +818,6 @@ E[\text{DiD estimator}] \\
 &= \gamma
 \end{aligned}
 \end{equation}
-
-
-
 
 
 ーーーーーーーーーーーーー
@@ -844,10 +841,9 @@ This specification allows for estimating the dynamic treatment effects over an e
 
 ーーーーーーーーーーーーー
 
-Using individual-level data from the Japanese General Social Surveys (JGSS), I investigate changes in individual annual income by gender between the three disaster-affected prefectures and other prefectures before and after the earthquake. The JGSS dataset consists of cross-sectional data collected in 2000, 2001, 2002, 2003, 2005, 2006, 2008, 2010, 2012, 2015, 2016, 2017, and 2018, provided by the JGSS Research Center at Osaka University of Commerce. This survey includes responses from over 20,000 individuals aged 20 to 89 who completed self-administered questionnaires. 
+In the Microdata sets analysis chapter, using individual-level data from the Japanese General Social Surveys (JGSS), I investigate changes in individual annual income by gender between the three disaster-affected prefectures and other prefectures before and after the earthquake. 
 
-
-The pre/post income band difference for affected prefecture women was statistically significant (Table 3; T-value: -1.849, P-value: 0.065). As Figure~\ref{fig:Kernel_density} and Table 3 shows, only this ‘Women in affected prefectures’ group's average income bands shifted right (increased) pre/post-disaster.
+The pre/post income band difference for affected prefecture women was statistically significant (Table 3; T-value: -1.849, P-value: 0.065). As Figure~\ref{fig:Kernel_density} and Table~\ref{table:mean_of_annual_income} shows, only this ‘Women in affected prefectures’ group's average income bands shifted right (increased) pre/post-disaster.
 
 \begin{figure}[h!]
     \centering
@@ -862,6 +858,7 @@ The pre/post income band difference for affected prefecture women was statistica
     \caption{Mean of annual income: Pre/Post-disaster period (Income bands, N=20,119)}
     \label{tab:annual_income}
     \includegraphics[width=0.9\textwidth]{Annual income table.png}  % 幅を本文の80%に設定
+    \label{table:mean_of_annual_income}
 \end{table}
 
 \newpage
@@ -872,7 +869,7 @@ The pre/post income band difference for affected prefecture women was statistica
 \subsection{Conceptual framework}
 \label{sec5.1}
 
-The case of the Great East Japan Earthquake illustrates the complexity of the reconstruction process and rational household responses when communities are disrupted by the disasters. Figure~\ref{fig:conceptual_model} presents changes in female labor force participation in a disaster-affected prefecture overtime as a conceptual framework for understanding overall effect. $T0$ represents the time point when the earthquake occurred. 
+The exact magnitude of natural disaster's impacts on output is widely debated. The case of the Great East Japan Earthquake illustrates the complexity of the reconstruction process and rational household responses when communities are disrupted by the disasters. Figure~\ref{fig:conceptual_model} presents changes in female labor force participation in a disaster-affected prefecture overtime as a conceptual framework for understanding overall effect. $T0$ represents the time point when the earthquake occurred. 
 
 At Phase 1, according to the Risk Adjustment Hypothesis, an exogenous shock would alter the production function of both sellers and buyers, disproportionately affecting female employment due to the higher prevalence of non-regular workers among women.
 
@@ -891,17 +888,17 @@ At Phase 3, in the long term, the impact of the disaster gradually diminishes, a
 Initially, these events disproportionately impacted female workers negatively. However, the earthquake and nuclear disaster potentially accelerated women's labor market participation by fundamentally disrupting communities bound by traditional gender roles. In the short term, the disaster and nuclear accident had a more severe negative impact on female workers. However, in the long term, this catastrophic event, while devastating, may have inadvertently challenged long-standing societal norms, thus facilitating increased female workforce engagement. The conceptual framework for considering gender dynamics and disaster impacts adapted the below basic model which captures the change in female labor force participation overtime, measuring its cumulative effect:
 
 \begin{equation}
-\int_{T0}^{T2} [LF_F(t) - LF_O(t)] dt
+\int_{T0}^{T2} [LF_F(t) - LF_C(t)] dt
 \end{equation}
 
-where $LF_F(t)$ represents the female labor force participation in Fukushima Prefecture at time $t$, and $LF_O(t)$ represents the counterfactual which assumes the earthquake did not occur, assuming the parallel trend of control prefectures. $T2$ denotes the end of the impact period (the end of Phase 3).
+where $LF_F(t)$ represents the female labor force participation in Fukushima Prefecture at time $t$, and $LF_C(t)$ represents the counterfactual which assumes the earthquake did not occur, assuming the parallel trend of control prefectures. $T2$ denotes the end of the impact period (the end of Phase 3).
 
 In this model, the present value of the disaster's impact on female labor force participation is captured by the integral. The result of the integration corresponds to the area of the hatched sections (\ding{172}+\ding{173}) in the graph, representing the sum of negative effects during the immediate post-disaster period and positive effects during the disaster recovery period.
 
 For a more detailed analysis, the model can be decomposed as follows:
 
 \begin{equation}
-\int_{T0}^{T1} [LF_F(t) - LF_O(t)] dt + \int_{T1}^{T2} [LF_F(t) - LF_O(t)] dt
+\int_{T0}^{T1} [LF_F(t) - LF_C(t)] dt + \int_{T1}^{T2} [LF_F(t) - LF_C(t)] dt
 \end{equation}
 
 where $T1$ represents the point in time at which the actual female labor force participation line intersects with the counterfactual line, depicted by the red dashed line in the graph. This equation allows for separate calculation of the negative impact (\ding{172}) and the positive impact (\ding{173}), while still computing their sum.
