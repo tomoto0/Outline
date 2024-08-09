@@ -1,55 +1,75 @@
-\documentclass[12pt,halfline,a4paper]{ouparticle}
+\PassOptionsToPackage{table, svgnames, dvipsnames}{xcolor}
 
-\usepackage{booktabs}
-\usepackage{xcolor}
-\usepackage{graphicx}
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{pdflscape}
+\usepackage{setspace}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{authblk}
 \usepackage{caption}
 \usepackage{subcaption}
-\usepackage{pifont}
-
-% Graph１ パッケージのインポート
-\usepackage{pgfplots}
-\usepackage{tikz}
-\usetikzlibrary{patterns}
-
-% \textit{Fig. }
-
-% Graph２ パッケージのインポート
-\usepackage{adjustbox}
-\pgfplotsset{compat=newest}
-\usepackage{xcolor}
-
-
-% Table1 パッケージのインポート
-
-\usepackage{threeparttable}
+\usepackage{ulem}
+\usepackage{multirow}
 \usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{geometry}
+\geometry{a4paper,margin=1in}
+\usetikzlibrary{patterns}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{positioning, shapes, arrows.meta}
+\usepackage{adjustbox}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+
+%REFERENCES
+\usepackage{natbib}
+\bibliographystyle{apalike}
+
+%LONGTABLE
+\usepackage{xcolor}
+\usepackage{longtable}
 
 
-% \usepackage{cite}  % citeパッケージのインポート
-\usepackage{natbib}  % 必要に応じて引用パッケージを使用
-\bibliographystyle{apalike} % 著者年スタイルの指定
+\usepackage{adjustbox, rotating, threeparttable}
+\usepackage{makecell, cellspace, caption}
+\usepackage{array}
+\usepackage{booktabs}
+
+%脚注
+\usepackage{footmisc}
+
 
 \begin{document}
 
 \title{Does the Gender Employment Gap Expand Due to Natural Disasters? Evidence from the Great East Japan Earthquake}
 
-\author{%
-\name{Tomoto Masuda}
-\address{}}
+\author{Tomoto Masuda}
 
-\abstract{This study examines the effects of the Great East Japan Earthquake of March 11, 2011, which led to a catastrophic tsunami and triggered a nuclear incident at Fukushima, on the gender employment gap in Fukushima Prefecture. Employing an event study approach alongside a difference-in-differences (DID) methodology, this study examines the earthquake's influence on gender-based employment dynamics. Drawing on extensive prefectural economic statistical data and individual socio-economic attributes from sources such as the Japan General Social Survey (JGSS), the Open Survey Data Japan Household Panel Survey on Consumer Preferences and Satisfaction (JHPS-CPS), the National Census, and the Housing and Land Survey, this study assesses the long-term effects of the earthquake on the gender employment gap. The results indicate that, in contrast to the immediate aftermath, the long-term impacts on the gender employment gap have attenuated significantly. This convergence can be attributed to multiple factors, including employment policies and the time lag between their implementation and observable effects, the economically rational adaptations of households in response to disruptions in community structures, and the possibility that the destruction of communities by the disaster also disrupted traditional gender norms and local gift economies, pushing women into the labor market.}
 
 \date{\today}
 
 \maketitle
 
+\begin{center}
+    \textbf{Abstract}
+\end{center}
+
+\noindent
+This study examines the effects of the Great East Japan Earthquake of March 11, 2011, which led to a catastrophic tsunami and triggered a nuclear incident at Fukushima, on the gender employment gap in Fukushima Prefecture. Employing an event study approach alongside a difference-in-differences (DID) methodology, this study examines the earthquake's influence on gender-based employment dynamics. Drawing on extensive prefectural economic statistical data and individual socio-economic attributes from sources such as the Japan General Social Survey (JGSS), the Open Survey Data Japan Household Panel Survey on Consumer Preferences and Satisfaction (JHPS-CPS), the National Census, and the Housing and Land Survey, this study assesses the long-term effects of the earthquake on the gender employment gap. The results indicate that, in contrast to the immediate aftermath, the long-term impacts on the gender employment gap have attenuated significantly. This convergence can be attributed to multiple factors, including employment policies and the time lag between their implementation and observable effects, the economically rational adaptations of households in response to disruptions in community structures, and the possibility that the destruction of communities by the disaster also disrupted traditional gender norms and local gift economies, pushing women into the labor market.
+
+
 \newpage
 
 \tableofcontents
 
-\newpage
 
+\clearpage
 \section{Introduction}
 \label{sec1}
 
@@ -145,9 +165,14 @@ On the other hand, development economics posits that households increase their l
 This study tries to fill gaps in the still sparse literature on the impact of natural disasters on gender disparities by differentiating between short-term and long-term effects, addressing the contradictory findings of existing research that suggests either an exacerbation or a reduction of gender gaps.
 
 
-\section{Descriptive Statistics}
+\section{Pre-Disaster Labor Market Structure and Post-Disaster Impact}
 \label{sec4}
 
+This section examines the structure of Fukushima Prefecture's labor market before the disaster, using data from the 2010 Population Census to overview occupations and employment types by gender. It then explores the economic impact of the disaster.
+
+
+\subsection{Employment sector and type in Fukushima pref}
+\label{sec4.1}
 
 Examining the proportion of employed persons aged 15 and over by industry and sex in Fukushima Prefecture, manufacturing accounts for the highest share among males at 23.5\%, followed by construction at 12.9\%. In contrast, construction represents only 2.6\% of female employment (Figure~\ref{fig:fukushima_employment}).
 
@@ -571,7 +596,7 @@ Source: Statistics Bureau, Ministry of Internal Affairs and Communications, Japa
 
 In Fukushima Prefecture, employment types among those aged 15 and over vary significantly by gender across occupations (Figure~\ref{fig:fukushima_Proportion_Occupation}). While 62.7\% of male clerical workers are regular employees, only 40.1\% of females are. Conversely, 36.8\% of women are part-time or temporary workers, compared to 9.8\% of men. This gender disparity in employment status can lead to disproportionate impacts during natural disasters. Notably, in agriculture, forestry, and fishery, 73.0\% of men are self-employed, while 81.2\% of women are family workers. This suggests a gendered division of labor in family businesses, where husbands are owners and wives are employees. Consequently, women's labor may serve as a buffer during crises, being more susceptible to fluctuations than men's.
 
-\begin{figure}[!htbp]
+\begin{figure}[!t]
 \centering
 \begin{tikzpicture}[scale=0.65,xshift=-2cm]
 \definecolor{color1}{RGB}{128,128,128}
@@ -701,28 +726,259 @@ In Fukushima Prefecture, employment types among those aged 15 and over vary sign
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+\subsection{The Impact of Evacuation on Labour Force}
+\label{sec4.1}
+
+The nuclear accident triggered significant demographic shifts in Fukushima Prefecture. Government issued evacuation orders for 12 municipalities surrounding the Fukushima nuclear power plant, forcing residents into long-term and widespread evacuation both within and outside the prefecture. According to the Reconstruction Agency, the number of evacuees from Fukushima Prefecture was reported as 59,464 (2.9\% of Fukushima's total population) as of December 2011, nine months after the earthquake. Additionally, the number of evacuees within Fukushima Prefecture was 95,200. Therefore, a total of 154,664 people (7.6\% of Fukushima's total population) became evacuees, and this number still stood at 110,880 five years after the disaster.
+
+%Consequently, the monthly effective job openings-to-applicants ratio rose to 0.70 in November 2011, surpassing the national average of 0.69 for the first time in 10 years and 6 months.
+
+As shown in Figure~\ref{fig:number_of_net_migration}, the official net migration plummeted to -31,381 in 2011 and -13,843 in 2012\footnote{The net migration data is sourced from the 'Basic Resident Registration Population Migration Report' by the Statistics Bureau, Ministry of Internal Affairs and Communications. It is important to note that these figures only account for individuals who officially reported their relocation to administrative agencies. There were likely many evacuees who did not formally register their moves.}. This exodus was most pronounced among children under 15 and adults aged 25-44, likely representing family units. Notably, female outmigration surpassed that of male in the 25-44 age group, corroborated by substantial decreases in kindergarten and elementary school enrollments. This pattern suggests a disproportionate evacuation of children and mothers due to nuclear safety concerns. However, by 2014-2015, a partial reversal emerged, characterized by net positive male migration, indicating a gender-imbalanced return trend. The proportion of female net out-migration to total net out-migration in 2014 and 2015 surged to 140.2\% and 122.4\% respectively, indicating a larger positive net migration for males than females. This complex migration pattern underscores the profound and lasting demographic impact of the disaster on Fukushima, with initial family-centric outmigration followed by a male-led return phase.
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Number of net migration.jpeg}  % 幅を本文の80%に設定
+    \caption{The Number of Net Migration and The Proportion of Female Net Out-migration to Total Net Out-migration in Fukushima Pref.}
+    \label{fig:number_of_net_migration}
+\end{figure}
+
+\newpage
+
+\subsection{Labour Force Participation Rate in Fukushima pref}
+\label{sec4.1}
+
+
+Did women's labor force participation in Fukushima Prefecture increase more than the national average after the disaster?
+The large-scale outmigration of working-age population (25-44 years old), especially women, potentially affected the labor force participation rate (the ratio of the labor force to the working-age population aged 15-64). Figure~\ref{fig:fukushima_labour_force_participation_rate} compares Fukushima's labor force participation rates to the national average before and after the 2011 earthquake. The data shows no evidence of a greater increase in Fukushima's female rates compared to the national average between pre-disaster (2010) and post-disaster periods (2015 and 2020). In fact, the national average increased more during this period.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}
+
+\begin{subfigure}{\textwidth}
+\caption{Fukushima Pref.}
+\begin{minipage}{0.48\textwidth}
+\begin{tikzpicture}
+\begin{axis}[
+    title={\textbf{Male}},
+    xlabel={Age Group},
+    ylabel={Labor Force Participation Rate (\%)},
+    xmin=0, xmax=12,
+    ymin=0, ymax=100,
+    xtick={1,2,3,4,5,6,7,8,9,10,11},
+    xticklabels={15-19,20-24,25-29,30-34,35-39,40-44,45-49,50-54,55-59,60-64,65+},
+    x tick label style={rotate=90,anchor=east,font=\footnotesize},
+    legend style={at={(0.5,0.38)},anchor=north,font=\footnotesize,
+                  cells={anchor=west},
+                  legend columns=1,
+                  draw=black,fill=white,align=left},
+    ymajorgrids=true,
+    grid style=dashed,
+    enlarge x limits={abs=0.5},
+]
+
+\addplot[color=blue,mark=square,] coordinates {
+    (1,15.1)(2,80.6)(3,96.8)(4,97.7)(5,97.7)(6,97.5)(7,97.3)(8,96.6)(9,94.2)(10,79.0)(11,31.7)
+};
+
+\addplot[color=red,mark=triangle,] coordinates {
+    (1,15.3)(2,78.2)(3,95.9)(4,96.7)(5,97.0)(6,96.8)(7,96.3)(8,95.9)(9,94.1)(10,81.0)(11,35.1)
+};
+
+\addplot[color=green,mark=o,] coordinates {
+    (1,16.0)(2,79.0)(3,95.8)(4,96.8)(5,96.6)(6,96.7)(7,96.3)(8,95.5)(9,94.3)(10,85.5)(11,39.2)
+};
+
+\legend{
+    2010 (Avg: 72.8\%),
+    2015 (Avg: 71.4\%),
+    2020 (Avg: 71.2\%)
+}
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\begin{tikzpicture}
+\begin{axis}[
+    title={\textbf{Female}},
+    xlabel={Age Group},
+    ylabel={},
+    xmin=0, xmax=12,
+    ymin=0, ymax=100,
+    xtick={1,2,3,4,5,6,7,8,9,10,11},
+    xticklabels={15-19,20-24,25-29,30-34,35-39,40-44,45-49,50-54,55-59,60-64,65+},
+    x tick label style={rotate=90,anchor=east,font=\footnotesize},
+    legend style={at={(0.5,0.38)},anchor=north,font=\footnotesize,
+                  cells={anchor=west},
+                  legend columns=1,
+                  draw=black,fill=white,align=left},
+    ymajorgrids=true,
+    grid style=dashed,
+    yticklabels={,,},
+    enlarge x limits={abs=0.5},
+]
+
+\addplot[color=blue,mark=square,] coordinates {
+    (1,14.0)(2,76.3)(3,78.2)(4,72.7)(5,73.6)(6,77.6)(7,80.3)(8,77.0)(9,66.8)(10,47.1)(11,14.1)
+};
+
+\addplot[color=red,mark=triangle,] coordinates {
+    (1,12.7)(2,74.6)(3,80.5)(4,76.0)(5,77.6)(6,80.0)(7,80.7)(8,79.1)(9,72.0)(10,52.7)(11,16.3)
+};
+
+\addplot[color=green,mark=o,] coordinates {
+    (1,13.1)(2,75.7)(3,85.7)(4,80.5)(5,81.3)(6,83.9)(7,84.4)(8,81.7)(9,77.1)(10,62.5)(11,20.1)
+};
+
+\legend{
+    2010 (Avg: 49.4\%),
+    2015 (Avg: 49.5\%),
+    2020 (Avg: 52.0\%)
+}
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\end{subfigure}
+
+\vspace{0.5cm}
+
+\begin{subfigure}{\textwidth}
+\caption{Nationwide}
+\begin{minipage}{0.48\textwidth}
+\begin{tikzpicture}
+\begin{axis}[
+    title={\textbf{Male}},
+    xlabel={Age Group},
+    ylabel={Labor Force Participation Rate (\%)},
+    xmin=0, xmax=12,
+    ymin=0, ymax=100,
+    xtick={1,2,3,4,5,6,7,8,9,10,11},
+    xticklabels={15-19,20-24,25-29,30-34,35-39,40-44,45-49,50-54,55-59,60-64,65+},
+    x tick label style={rotate=90,anchor=east,font=\footnotesize},
+    legend style={at={(0.5,0.38)},anchor=north,font=\footnotesize,
+                  cells={anchor=west},
+                  legend columns=1,
+                  draw=black,fill=white,align=left},
+    ymajorgrids=true,
+    grid style=dashed,
+    enlarge x limits={abs=0.5},
+]
+
+\addplot[color=blue,mark=square,] coordinates {
+    (1,15.5)(2,70.6)(3,95.6)(4,97.5)(5,97.7)(6,97.5)(7,97.3)(8,96.7)(9,94.4)(10,80.1)(11,33.5)
+};
+
+\addplot[color=red,mark=triangle,] coordinates {
+    (1,15.5)(2,69.3)(3,94.5)(4,96.6)(5,96.9)(6,96.8)(7,96.3)(8,95.7)(9,94.0)(10,80.8)(11,33.8)
+};
+
+\addplot[color=green,mark=o,] coordinates {
+    (1,16.7)(2,74.0)(3,95.4)(4,96.8)(5,96.9)(6,96.8)(7,96.3)(8,95.6)(9,94.3)(10,86.5)(11,37.5)
+};
+
+\legend{
+    2010 (Avg: 73.8\%),
+    2015 (Avg: 70.9\%),
+    2020 (Avg: 71.6\%)
+}
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\begin{tikzpicture}
+\begin{axis}[
+    title={\textbf{Female}},
+    xlabel={Age Group},
+    ylabel={},
+    xmin=0, xmax=12,
+    ymin=0, ymax=100,
+    xtick={1,2,3,4,5,6,7,8,9,10,11},
+    xticklabels={15-19,20-24,25-29,30-34,35-39,40-44,45-49,50-54,55-59,60-64,65+},
+    x tick label style={rotate=90,anchor=east,font=\footnotesize},
+    legend style={at={(0.5,0.38)},anchor=north,font=\footnotesize,
+                  cells={anchor=west},
+                  legend columns=1,
+                  draw=black,fill=white,align=left},
+    ymajorgrids=true,
+    grid style=dashed,
+    yticklabels={,,},
+    enlarge x limits={abs=0.5},
+]
+
+\addplot[color=blue,mark=square,] coordinates {
+    (1,15.4)(2,70.4)(3,78.7)(4,69.4)(5,68.0)(6,72.5)(7,75.8)(8,73.2)(9,63.9)(10,47.5)(11,14.9)
+};
+
+\addplot[color=red,mark=triangle,] coordinates {
+    (1,14.7)(2,69.5)(3,81.4)(4,73.5)(5,72.7)(6,76.0)(7,77.9)(8,76.2)(9,69.4)(10,52.1)(11,16.7)
+};
+
+\addplot[color=green,mark=o,] coordinates {
+    (1,16.8)(2,74.2)(3,86.6)(4,79.1)(5,78.1)(6,80.8)(7,82.0)(8,80.2)(9,75.3)(10,62.2)(11,19.9)
+};
+
+\legend{
+    2010 (Avg: 49.6\%),
+    2015 (Avg: 50.0\%),
+    2020 (Avg: 53.5\%)
+}
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\end{subfigure}
+
+\vspace{0.5cm}
+
+\begin{minipage}{\textwidth}
+\footnotesize
+\textbf{Note:} Labor force participation rates from the 2010, 2015, and 2020 Population Censuses. The ratio of the labor force to the population aged 15 and over (excluding those with "unknown" labor force status).
+
+\end{minipage}
+
+
+\caption{Labour Force Participation Rate by Age (Five-Year Groups) and Sex - Fukushima Pref/Japan}
+
+
+\label{fig:fukushima_labour_force_participation_rate}
+
+\end{figure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsection{The Impact on Employment and Unemployment in 2011}
-\label{sec4.1}
 
-The employment and unemployment landscape in fiscal year 2011 was severely impacted by the Great East Japan Earthquake on March 11, 2011. The earthquake and subsequent tsunami, coupled with the severe nuclear incident at the Fukushima Daiichi Nuclear Power Plant, led to business closures, mass evacuation of residents both within and outside the prefecture, and reputational damage. These factors resulted in an exceptionally grave employment situation. Initially, there was a sharp increase in job seekers and unemployment insurance recipients. However, the employment situation gradually improved, primarily due to an upsurge in job openings related to post-disaster reconstruction, particularly in the construction sector. Consequently, the monthly effective job openings-to-applicants ratio rose to 0.70 in November 2011, surpassing the national average of 0.69 for the first time in 10 years and 6 months.
-
-
+\clearpage
 \subsection{Job Openings/Applicants Analysis}
 \label{sec4.1}
 
-Figure~\ref{fig:new_job_openings} illustrates the number of new job openings/applicants and trends in the Effective Job Openings-to-Applicants Ratio in Fukushima Prefecture and Nationwide, recorded at Hello Work, Japan’s public employment security office, which maintains a comprehensive database of current job vacancies accessible to all citizens. 
+The disaster resulted in an exceptionally grave employment situation. Initially, there was a sharp increase in job seekers and unemployment insurance recipients. However, the employment situation gradually improved, primarily due to an upsurge in job openings related to post-disaster reconstruction, particularly in the construction sector. 
+
+
+Figure~\ref{fig:new_job_openings} illustrates the number of new job openings/applicants and trends in the Effective Job Openings-to-Applicants Ratio in Fukushima Prefecture and Nationwide, recorded at Hello Work, Japan’s public employment security office, which maintains a comprehensive database of current job vacancies accessible to all citizens\footnote{It should be noted that Hello Work job listings represent only a partial view of the overall labor market. According to the Ministry of Health, Labour and Welfare's "Survey on Employment Trends," in 2013, out of 7.49 million new hires nationwide, 35.8\% were through media/advertising, 21.8\% through personal connections, and 20.2\% through Hello Work. Recently, high-income white-collar positions increasingly use online platforms or direct hiring rather than Hello Work. Hello Work listings may be skewed towards certain sectors, such as healthcare and social welfare. Additionally, Hello Work is more commonly used for recruitment in small and medium-sized enterprises.}. 
+
+%「Hello Workの求人・求職情報は、労働市場全体の一部を表しているに過ぎないことに留意が必要。厚生労働省「雇用動向調査」によれば、日本全国の平成25年の入職者数は749万人（一般労働者：426万、パートタイム労働者：323万人）で、その入職経路をみると、求人メディア・広告によるものが268万人（35.8%）と最も多く、次いで縁故の163万人（21.8%）、ハローワークの151万人（20.2%）となっている。また、最近では高年収のホワイトカラー職種などでは、ハローワークではなく、ビジネスSNSや人材データベースなどのネット求人や企業が直接採用を行うケースが増えてきている。ハローワークでは医療・福祉分野の求人が多いなど、職種による偏りがあることにも留意が必要。また、ハローワークは中小企業入職者で、media/advertisingは大企業入職者で多い。」
+
+%注）『一般職業紹介状況（職業安定業務統計）』は「全国の公共職業安定所（ハローワーク）における職業紹介業務の実績を集計した業務統計」である。厚生労働省『平成22年雇用動向調査』によれば、入職者に占める公共職業安定所が入職経路である者は21.5％（ハローワークインターネットサービスを含むと26.2％）であること，また，管理的職業など，公共職業安定所を経路としない職業など，分析対象と成る職業に偏りがあることを留意する必要がある。
+
 
 After the 2011 earthquake, Fukushima's job openings-to-applicants ratio surpassed the national average until 2016, driven by a reconstruction boom. This led to a sharp increase in job openings, especially in restoration projects. Post-2016, as reconstruction demand peaked, the ratio fell below the national average. Job openings remained high but declining, while applications steadily decreased, indicating increased employment absorption due to continuous high job openings situation.
+
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.9\textwidth]{New Job Openings.jpeg}  % 幅を本文の80%に設定
-    \caption{New job openings and applicants}
+    \caption{Hello Work Job Openings and Applicants in Fukushima Pref.}
     \label{fig:new_job_openings}
 \end{figure}
+
 
 %Although the number of job openings in the three disaster-affected prefectures of Iwate, Miyagi, and Fukushima initially decreased significantly immediately after the disaster, they have since outperformed the national average. This improvement is largely attributed to the reconstruction demand, including a surge in the construction industry. The first research question of this study investigates how the gender employment gap has evolved under such circumstances.
 
@@ -735,10 +991,12 @@ Figure~\ref{fig:fukushima_Women_ratio_on_applicant} shows a long-term trend of t
     \label{fig:fukushima_Women_ratio_on_applicant}
 \end{figure}
 
+\newpage
 
 The graph reveals that in Fukushima Prefecture, prior to the disaster, from 2008 to the earthquake, the proportion of male job seekers had increased due to the impact of the Lehman Shock. However, post-disaster, there has been a gradual increase in the proportion of female job seekers. In the disaster-affected areas, there is a potential long-term trend of increasing female labor force participation.
 
 Figure~\ref{fig:women_ratio_fukushima} presents a time-series graph showing the proportion of active women job seekers among total job applications submitted to Hello Work in Fukushima Prefecture. Labor market trends in Fukushima Prefecture over the past two decades reveal three distinct phases. During the 2008-2010 global financial crisis, the proportion of female job seekers decreased, suggesting a greater impact on male employment. Following the 2011 Great East Japan Earthquake, there was a sustained increase in the proportion of female job seekers, a trend that persisted throughout the post-disaster period. Since 2020, the COVID-19 pandemic has resulted in a slight decline in the female share of job seekers, potentially indicating a shift in labor market dynamics.
+
 
 \begin{figure}[h!]
     \centering
@@ -747,8 +1005,7 @@ Figure~\ref{fig:women_ratio_fukushima} presents a time-series graph showing the 
     \label{fig:women_ratio_fukushima}
 \end{figure}
 
-
-\newpage
+\clearpage
 
 Figure~\ref{fig:women_ratio_fukushima2} illustrates both short-term (upper graph) and long-term (lower graph) changes in unemployment insurance recipients in Fukushima Prefecture following the Earthquake. Regarding short-term effects, while overall recipient numbers spiked briefly before returning to pre-disaster levels within a year, the proportion of female recipients also showed a notable increase. This percentage rose from 52-53\% pre-disaster to a peak of 57.2\% in August 2011, five months post-earthquake, before gradually declining. Notably, this peak was 1.7 percentage points higher than the nationwide figure. This trend aligns with reports of heightened short-term employment challenges for women, particularly in heavily impacted coastal areas where female-dominated industries like seafood processing, which employed many part-time women workers, suffered significant damage. Conversely, long-term effects reveal a contrasting trend, with the proportion of female recipients in Fukushima declining relative to the national average. This disparity reached its maximum in 2017, with Fukushima's 55.4\% being 4.7 percentage points lower than the nationwide figure of 60.1\%.
 
@@ -760,9 +1017,10 @@ Figure~\ref{fig:women_ratio_fukushima2} illustrates both short-term (upper graph
     \label{fig:women_ratio_fukushima2}
 \end{figure}
 
-\newpage
 
 Figure~\ref{fig:employment_insurance_decisions} presents a line graph illustrating the number of unemployment insurance decisions in Fukushima Prefecture, along with the proportion of female applicants relative to total applicants. The graph also includes the national average for comparison. From this graph, it is evident that in Fukushima Prefecture, the proportion of female applicants for unemployment insurance has shown a declining trend post-disaster. This suggests a potential improvement in the labor market conditions for female workers in the disaster-affected areas over the longer term.
+
+
 
 \begin{figure}[h!]
     \centering
@@ -772,8 +1030,7 @@ Figure~\ref{fig:employment_insurance_decisions} presents a line graph illustrati
 \end{figure}
 
 
-\newpage
-
+\clearpage
 \subsection{Microdata sets analysis}
 \label{sec5.1}
 
@@ -791,7 +1048,6 @@ To elucidate the causal relationship and mechanisms through which the Great East
     
 \end{table}
 
-\newpage
 
 \subsection{Empirical model}
 \label{sec5.1}
@@ -807,7 +1063,6 @@ Y_{ipt} = \alpha_{p} + \beta D_{p} + \eta Post_{t} + \gamma (D_{pt} * Post_{t}) 
 \end{equation}
 
 Here, \( Y_{idt} \) denotes the outcome variable, such as the employment rate, annual income, or working hours, for individual \( i \) in prefecture \( p \) at year \( t \). \( \gamma \) represents the disasters effect that I aim to estimate. 
-
 
 \begin{equation}
 \begin{aligned}
