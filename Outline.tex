@@ -1061,7 +1061,6 @@ To elucidate the causal relationship and mechanisms through which the Great East
 
 
 \subsection{Empirical model}
-\label{sec5.1}
 
 This study statistically estimates whether trends similar to those observed at the regional level in microdata can be identified using four anonymized individual-level datasets: the Japan General Social Survey (JGSS), the Open Survey Data Japan Household Panel Survey on Consumer Preferences and Satisfaction (JHPS-CPS), the National Census, and the Housing and Land Survey. The analysis employs a Difference-in-Differences (DID) approach with Fukushima Prefecture as the Treatment group and other prefectures as the Control group.
 
@@ -1107,9 +1106,34 @@ This specification allows for estimating the dynamic treatment effects over an e
 
 ーーーーーーーーーーーーー
 
-In the Microdata sets analysis chapter, using individual-level data from the Japanese General Social Surveys (JGSS), I investigate changes in individual annual income by gender between the three disaster-affected prefectures and other prefectures before and after the earthquake. 
 
-The pre/post income band difference for affected prefecture women was statistically significant (Table 3; T-value: -1.849, P-value: 0.065). As Figure~\ref{fig:Kernel_density} and Table~\ref{table:mean_of_annual_income} shows, only this ‘Women in affected prefectures’ group's average income bands shifted right (increased) pre/post-disaster.
+
+\subsection{Japanese General Social Surveys (JGSS) Analysis}
+
+In the Microdata sets analysis chapter, using individual-level data from the Japanese General Social Surveys (JGSS), I investigate changes in individual annual income by gender between the three disaster-affected prefectures and other prefectures before and after the disaster. The JGSS sample was divided into two groups based on whether the survey was conducted before or after the earthquake. This was achieved by creating a dummy variable indicating whether the survey year was before or after 2011, the year of the earthquake.
+
+\begin{table}[h]
+\centering
+\caption{JGSS Longitudinal Sample Size by Disaster Area Status and Survey Year, 2000-2018}
+\label{tab:distribution}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccccccccccc}
+\toprule
+ & \multicolumn{13}{c}{Survey Year} & \\
+\cmidrule(lr){2-14}
+ & 2000 & 2001 & 2002 & 2003 & 2005 & 2006 & 2008 & 2010 & 2012 & 2015 & 2016 & 2017 & 2018 & Total \\
+\midrule
+Non-disaster area & 2,753 & 2,664 & 2,812 & 3,462 & 1,943 & 4,084 & 4,009 & 4,772 & 4,461 & 1,976 & 922 & 714 & 1,810 & 36,382 \\
+Disaster-affected area & 140 & 126 & 141 & 201 & 80 & 170 & 211 & 231 & 206 & 103 & 46 & 30 & 106 & 1,791 \\
+\midrule
+Total & 2,893 & 2,790 & 2,953 & 3,663 & 2,023 & 4,254 & 4,220 & 5,003 & 4,667 & 2,079 & 968 & 744 & 1,916 & 38,173 \\
+\bottomrule
+\end{tabular}%
+}
+\label{table:Longitudinal_sample}
+\end{table}
+
+The pre/post income band difference for affected prefecture women was statistically significant (Table~\ref{table:mean_of_annual_income} ; T-value: -1.849, P-value: 0.065). As Figure~\ref{fig:Kernel_density} and Table~\ref{table:mean_of_annual_income} shows, only this ‘Women in affected prefectures’ group's average income bands shifted right (increased) pre/post-disaster.
 
 \begin{figure}[h!]
     \centering
@@ -1123,11 +1147,45 @@ The pre/post income band difference for affected prefecture women was statistica
     \centering
     \caption{Mean of annual income: Pre/Post-disaster period (Income bands, N=20,119)}
     \label{tab:annual_income}
-    \includegraphics[width=0.9\textwidth]{Annual income table.png}  % 幅を本文の80%に設定
+    \includegraphics[width=1.0\textwidth]{Annual income table.png} 
     \label{table:mean_of_annual_income}
 \end{table}
 
-\newpage
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{income_changes_table.png}  % 幅を本文の80%に設定
+    \caption{Bar graphs of respondent’s annual income from main job (Income bands, N= 20,119)}
+
+\end{figure}
+
+
+
+\begin{figure}[h!]
+    \centering
+    \caption{Kernel density graphs of respondent’s weekly work hours, N= 23,544)}
+    \label{fig:working_hours}
+    \includegraphics[width=1.0\textwidth]{workinghours_distribution_combined.png} 
+    
+\end{figure}
+
+
+\begin{figure}[h!]
+    \centering
+    \caption{Kernel density graphs of respondent’s intention to keep working, N= 22,449)}
+    \label{tab:intention_to_work}
+    \includegraphics[width=1.0\textwidth]{intention_to_keep_working_distribution_combined.png} 
+    
+\end{figure}
+
+
+
+\clearpage
+
+
+
+
 
 \section{Discussion}
 \label{sec5}
